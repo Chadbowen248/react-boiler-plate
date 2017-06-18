@@ -8,6 +8,7 @@
   flex-direction: column;
   height: 100vh;
   color: #333;
+  max-width: 300px;
   padding: 1em;
   padding-left: 50px;
   padding-bottom: 0px;
