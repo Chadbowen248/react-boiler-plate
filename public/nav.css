@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+.nav-container {
+    background-color: tomato;
+}
+
+.nav {
+    display: flex;
+    color: #333;
+    padding: 1em;
+    font-family: 'Oswald', sans-serif;
+    font-size: .5em;
+    width: 30%;
+    justify-content: space-around;
+}
+
+.nav *:hover {
+    color: #fff;
+    cursor: pointer;
+}
