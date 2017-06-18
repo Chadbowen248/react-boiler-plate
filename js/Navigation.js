@@ -6,7 +6,7 @@ const Navigation = React.createClass({
     return (
       <div className='nav-container'>
         <div className='nav'>
-          <Link to={'/search'}><h1>News</h1></Link>
+          <Link to={'/news'}><h1>News</h1></Link>
           <h1>Weather</h1>
           <h1>Happy</h1>
           <h1>Contact</h1>

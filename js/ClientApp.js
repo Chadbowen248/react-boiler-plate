@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 import { BrowserRouter, Match } from 'react-router'
 import Navigation from './Navigation'
 import Landing from './Landing'
-import Search from './Search'
+import News from './News'
 import '../public/normalize.css'
 import '../public/style.css'
 import '../public/nav.css'
@@ -15,7 +15,7 @@ const App = React.createClass({
         <div>
           <Navigation />
           <Match exactly pattern='/' component={Landing} />
-          <Match pattern='/search' component={Search} />
+          <Match pattern='/news' component={News} />
         </div>
       </BrowserRouter>
     )
