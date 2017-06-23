@@ -4,8 +4,8 @@ import '../public/news.css'
 const News = React.createClass({
   render () {
     return (
-      <div className='news-page copy'>
-        <h1>News</h1>
+      <div className='news-page page-container'>
+        <h1 className='copy'>News</h1>
       </div>
     )
   }

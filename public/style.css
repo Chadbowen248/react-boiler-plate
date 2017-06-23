@@ -1,1 +1,13 @@
-#app > [data-reactroot] { display: flex }
+#app > [data-reactroot] { width: 100vw; }
+
+.page-container {
+    width: 85vw;
+    margin-left: 15vw;
+    height: 100vh;
+}
+
+.copy {
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  padding: 1em;
+}

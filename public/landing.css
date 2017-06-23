@@ -1,10 +1,10 @@
 .landing-page {
     background-size: cover;
-    width: 100vw;
-    background: 
+    background-position: center;
+    background-image: 
     linear-gradient(
-      rgba(31,31,31, .9), 
+      rgba(31,31,31, .1), 
       rgba(0, 0, 0, .9)
     ),
-    url('https://i.redd.it/1owsqxyv774z.jpg');
+    url('https://i.redd.it/9fam18ma765z.jpg');
 }
