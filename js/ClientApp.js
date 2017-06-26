@@ -5,11 +5,11 @@ import Navigation from './Navigation'
 import Landing from './Landing'
 import News from './News'
 import 'react-rpm'
-import '../public/normalize.css'
-import '../public/style.css'
-import '../public/nav.css'
+import '../public/styles/normalize.css'
+import '../public/styles/style.css'
+import '../public/styles/nav.css'
 
-const App = React.createClass({
+class App extends React.Component {
   render () {
     return (
       <BrowserRouter>
@@ -21,6 +21,6 @@ const App = React.createClass({
       </BrowserRouter>
     )
   }
-})
+}
 
 render(<App />, document.getElementById('app'))

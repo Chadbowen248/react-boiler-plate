@@ -1,12 +1,12 @@
 import React from 'react'
-import '../public/landing.css'
+import '../public/styles/landing.css'
 
-const Landing = React.createClass({
+class Landing extends React.Component {
   render () {
     return (
       <div className='landing-page page-container' />
     )
   }
-})
+}
 
 export default Landing
