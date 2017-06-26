@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/btholt/complete-intro-to-react#readme",
   "dependencies": {
+    "axios": "^0.16.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router": "4.0.0-alpha.4"
