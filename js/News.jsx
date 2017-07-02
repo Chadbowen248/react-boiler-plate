@@ -16,11 +16,9 @@ class News extends React.Component {
       "techcrunch"
     ]
 
-    const NewsSourceComponenets = sources.map(index => <NewsSource source={index} key={index} />)
-
     return (
       <div className="news-page page-container">
-        {NewsSourceComponenets}
+        {sources.map(index => <NewsSource source={index} key={index} />)}
       </div>
     )
   }

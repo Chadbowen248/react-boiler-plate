@@ -7,18 +7,18 @@ class NewsCard extends Component {
     return (
       <div className="card">
         <div className="card-image">
-          <img src="http://bulma.io/images/placeholders/1280x960.png" alt="Image" />
+          <img src={this.props.details.urlToImage} alt="Image" />
         </div>
         <div className="card-content">
           <div className="media">
             <div className="media-left" />
             <div className="media-content">
-              <p className="title is-4">John Smith</p>
+              <p className="title is-4">{this.props.details.title}</p>
             </div>
           </div>
 
           <div className="content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris. <a>{this.props.source}</a>.
           </div>
         </div>
       </div>
