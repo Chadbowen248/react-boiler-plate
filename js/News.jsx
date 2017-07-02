@@ -1,11 +1,20 @@
-import React from 'react'
-import '../public/styles/news.css'
+import React from "react"
+import NewsCard from "./NewsCard.jsx"
+import "../public/styles/news.css"
 
 class News extends React.Component {
-  render () {
+  render() {
     return (
-      <div className='news-page page-container'>
-        <h1 className='copy'>News</h1>
+      <div className="news-page page-container">
+        <NewsCard />
+        <NewsCard />
+        <NewsCard />
+        <NewsCard />
+        <NewsCard />
+        <NewsCard />
+        <NewsCard />
+        <NewsCard />
+        <NewsCard />
       </div>
     )
   }

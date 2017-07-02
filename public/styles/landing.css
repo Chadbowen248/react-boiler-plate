@@ -1,4 +1,6 @@
 .landing-page {
+    display: flex;
+    align-items: center;
     background-size: cover;
     background-position: center;
     background-image: 
@@ -6,4 +8,13 @@
       rgba(31,31,31, .1), 
       rgba(0, 0, 0, .9)
     )
+}
+
+.quote-container {
+  height: 30vh;
+  width: 85vw;
+  color: #fff;
+  font-size: 2vw;
+  padding: 1em;
+  background-color: rgba(0,0,0,.5);
 }

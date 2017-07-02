@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   context: __dirname,
-  entry: './js/ClientApp.js',
+  entry: './js/ClientApp.jsx',
   devtool: 'eval',
   output: {
     path: path.join(__dirname, '/public'),
@@ -16,7 +16,7 @@ module.exports = {
     disableHostCheck: true
   },
   resolve: {
-    extensions: ['.js', '.json']
+    extensions: ['.js', '.json', '.jsx']
   },
   stats: {
     colors: true,
@@ -33,7 +33,7 @@ module.exports = {
       },
       {
         include: path.resolve(__dirname, 'js'),
-        test: /\.js$/,
+        test: [/\.js$/,/\.jsx$/],
         loader: 'babel-loader'
       },
       {

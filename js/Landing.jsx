@@ -3,8 +3,8 @@ import Axios from 'axios'
 import '../public/styles/landing.css'
 
 class Landing extends React.Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state = {
       imageIndex: ''
     }
@@ -14,7 +14,7 @@ class Landing extends React.Component {
     this.setState({
       imageIndex: Math.floor(Math.random() * 7) + 1
     })
-    const URL = 'https://andruxnet-random-famous-quotes.p.mashape.com/?cat=movies'
+    const URL = 'https://andruxnet-random-famous-quotes.p.mashape.com/?cat=famous'
     Axios.get(URL, {headers: {'X-Mashape-Key': 'VX2byySRsJmshOGnZtVwLVW1ymWwp143BhvjsnEhKJnBQDcrrb'}})
     .then(res => {
       console.log(res.data)
@@ -26,7 +26,9 @@ class Landing extends React.Component {
   render () {
     return (
       <div className='landing-page page-container' style={{backgroundImage: `url(public/img/landing-page/${this.state.imageIndex}.jpg)`}}>
-          <div>{this.state.test}</div>
+          <div className='quote-container'>
+           <span> {this.state.test}</span>
+            </div>
       </div>
     )
   }
