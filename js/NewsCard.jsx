@@ -1,15 +1,10 @@
-import React, { Component } from "react"
-import "bulma/css/bulma.css"
+import React, { Component } from 'react'
+import 'bulma/css/bulma.css'
 
 class NewsCard extends Component {
-  render() {
+  render () {
     return (
-      <div
-        onClick={() => {
-          console.log("clicked")
-        }}
-        className="card">
-
+      <div className="card">
         <div className="card-image">
           <img src={this.props.details.urlToImage} alt="Image" />
         </div>
@@ -21,7 +16,6 @@ class NewsCard extends Component {
               </p>
             </div>
           </div>
-          
         </div>
       </div>
     )

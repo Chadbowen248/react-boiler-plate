@@ -5,12 +5,14 @@ const Navigation = React.createClass({
   render() {
     return (
       <div className="nav">
+        <Link to={"/"}>
+          <h1>Home</h1>
+        </Link>
         <Link to={"/news"}>
           <h1>News</h1>
         </Link>
         <h1>Weather</h1>
-        <h1>Happy</h1>
-        <h1>Contact</h1>
+
       </div>
     )
   }

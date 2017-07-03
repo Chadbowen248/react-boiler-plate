@@ -16,7 +16,7 @@ class News extends React.Component {
     ]
 
     return (
-      <div className="page-container">
+      <div className="page-container news">
         {sources.map(index => <NewsSource source={index} key={index} />)}
       </div>
     )

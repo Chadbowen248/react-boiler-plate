@@ -1,6 +1,5 @@
 .landing-page {
     display: flex;
-    align-items: center;
     background-size: cover;
     background-position: center;
     background-image: 
@@ -14,7 +13,16 @@
   height: 30vh;
   width: 85vw;
   color: #fff;
+  font-family: 'Heebo', sans-serif;
   font-size: 2vw;
   padding: 1em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   background-color: rgba(0,0,0,.5);
+}
+
+.byline {
+  font-size: .5em
 }

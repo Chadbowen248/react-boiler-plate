@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Heebo:100');
 @import url('https://fonts.googleapis.com/css?family=Fjalla+One|Raleway');
 
+.news {
+    padding: 1em 2em;
+}
+
 .news-container {
     display: flex;
-
     flex-direction: column;
-
-    padding-bottom: 3em;
+    padding-bottom: 1em;
 }
 
 .news-container:first-child h6{
@@ -16,7 +18,7 @@
 
 .news-source-title {
     font-family: 'Heebo', sans-serif;
-    font-size: 3vw;
+    font-size: 2vw;
    
     font-weight: 100;
     padding-top: .75em;
