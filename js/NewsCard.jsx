@@ -9,7 +9,7 @@ class NewsCard extends Component {
           console.log("clicked")
         }}
         className="card">
-        
+
         <div className="card-image">
           <img src={this.props.details.urlToImage} alt="Image" />
         </div>
@@ -21,7 +21,7 @@ class NewsCard extends Component {
               </p>
             </div>
           </div>
-          <div className="content" />
+          
         </div>
       </div>
     )

@@ -23,7 +23,16 @@
   max-width: 450px;
 }
 
+.title {
+  font-family: 'Fjalla One', sans-serif;
+    line-height: 1.5em;
+}
+.title.is-4 {
+      font-size: 1em;
+
+}
 img {
-  width: 360px;
-  height: 260px;
+  width: 460px;
+  height: 300px;
+  max-width: 100%;
 }
