@@ -21,7 +21,7 @@ class NewsSource extends Component {
         <h6 className="news-source-title">
           {this.props.source}
         </h6>
-        <div className="testing">
+        <div className="news-default">
           {Object.keys(this.state.articles).map(test =>
             <NewsCard key={test} index={test} details={this.state.articles[test]} source={this.props.source} />
           )}

@@ -3,8 +3,9 @@
 
 .news-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+
+    flex-direction: column;
+
     padding-bottom: 3em;
 }
 
@@ -16,7 +17,7 @@
 .news-source-title {
     font-family: 'Heebo', sans-serif;
     font-size: 3vw;
-    flex: 100%;
+   
     font-weight: 100;
     padding-top: .75em;
     border-top: #ccc solid 1px;
@@ -27,9 +28,13 @@
 
 
 
-.testing {
+.show-news {
     display: flex;
     padding-top: .75em;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+
+.news-default {
+    display: none;
 }
