@@ -8,19 +8,24 @@ class NewsSource extends Component {
     this.state = { articles: [] }
   }
   componentDidMount() {
-    console.log(this.props.source)
     const APIkey = "&sortBy=top&apiKey=26ce81bcd5214311bb4c8d1bd8761e20"
     const endPoint = "https://newsapi.org/v1/articles?source="
     Axios.get(endPoint + this.props.source + APIkey).then(res => {
-      this.setState({ articles: res.data.articles })
+      const trimmedArr = res.data.articles.slice(0,9)
+      this.setState({ articles: trimmedArr })
     })
   }
   render() {
     return (
-      <div>
-        {Object.keys(this.state.articles).map(test =>
-          <NewsCard key={test} index={test} details={this.state.articles[test]} source={this.props.source} />
-        )}
+      <div className="news-container">
+        <h6 className="news-source-title">
+          {this.props.source}
+        </h6>
+        <div className="testing">
+          {Object.keys(this.state.articles).map(test =>
+            <NewsCard key={test} index={test} details={this.state.articles[test]} source={this.props.source} />
+          )}
+        </div>
       </div>
     )
   }

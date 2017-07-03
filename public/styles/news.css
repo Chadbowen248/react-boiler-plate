@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Heebo:100');
+
+.news-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-bottom: 3em;
+}
+
+.news-container:first-child h6{
+    padding-top: 0em;
+    border-top: none;
+}
+
+.news-source-title {
+    font-family: 'Heebo', sans-serif;
+    font-size: 3vw;
+    flex: 100%;
+    font-weight: 100;
+    padding-top: .75em;
+    border-top: #ccc solid 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+
+
+
+.testing {
+    display: flex;
+    padding-top: .75em;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
