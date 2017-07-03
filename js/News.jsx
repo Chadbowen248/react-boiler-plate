@@ -3,6 +3,16 @@ import NewsSource from "./NewsSource.jsx"
 import "../public/styles/news.css"
 
 class News extends React.Component {
+    constructor (props) {
+    super(props)
+    this.toggleClass = this.toggleClass.bind(this)
+    this.state = { active: false }
+  }
+
+  toggleClass () {
+    const currentState = this.state.active
+    this.setState({ active: !currentState })
+  }
   render() {
     const sources = [ 
      "bbc-news",
@@ -17,7 +27,7 @@ class News extends React.Component {
 
     return (
       <div className="page-container news">
-        {sources.map(index => <NewsSource source={index} key={index} />)}
+        {sources.map(index => <NewsSource source={index} key={index} toggleClass={this.toggleClass} isActive={this.state.active}/>)}
       </div>
     )
   }

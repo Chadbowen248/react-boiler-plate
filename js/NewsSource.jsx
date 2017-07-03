@@ -5,14 +5,9 @@ import NewsCard from './NewsCard.jsx'
 class NewsSource extends Component {
   constructor (props) {
     super(props)
-    this.toggleClass = this.toggleClass.bind(this)
-    this.state = { articles: [], active: false }
+    this.state = { articles: []}
   }
 
-  toggleClass () {
-    const currentState = this.state.active
-    this.setState({ active: !currentState })
-  }
 
   componentDidMount () {
     const APIkey = '&sortBy=top&apiKey=26ce81bcd5214311bb4c8d1bd8761e20'
@@ -26,7 +21,7 @@ class NewsSource extends Component {
   render () {
     return (
       <div className="news-container">
-        <h6 className="news-source-title" onClick={this.toggleClass}>
+        <h6 className="news-source-title" onClick={this.props.toggleClass}>
           {this.props.source}
         </h6>
         <div className={this.state.active ? 'show-news' : 'news-default'}>
