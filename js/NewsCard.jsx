@@ -4,6 +4,7 @@ import 'bulma/css/bulma.css'
 class NewsCard extends Component {
   render () {
     return (
+      <a href={this.props.details.url}>
       <div className="card">
         <div className="card-image">
           <img src={this.props.details.urlToImage} alt="Image" />
@@ -14,10 +15,12 @@ class NewsCard extends Component {
               <p className="title is-4">
                 {this.props.details.title}
               </p>
+              <p>{this.props.details.description}</p>
             </div>
           </div>
         </div>
       </div>
+      </a>
     )
   }
 }
