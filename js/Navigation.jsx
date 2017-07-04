@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router"
 
-const Navigation = React.createClass({
+class Navigation extends React.Component {
   render() {
     return (
       <div className="nav">
@@ -12,11 +12,9 @@ const Navigation = React.createClass({
           <h1>News</h1>
         </Link>
         <h1>Weather</h1>
-
       </div>
     )
   }
-})
+}
 
 export default Navigation
-
