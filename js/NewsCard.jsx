@@ -3,8 +3,10 @@ import 'bulma/css/bulma.css'
 
 class NewsCard extends Component {
   render () {
+    const image = `url(${this.props.details.urlToImage})`
+    const backupImage = 'url("http://media.comicbook.com/uploads1/2015/08/rick-and-morty---header-147026.jpg")'
     const backgroundImage = {
-      backgroundImage: `url(${this.props.details.urlToImage})`,
+      backgroundImage: !this.props.details.urlToImage ? image : backupImage,
       backgroundPosition: 'center',
       backgroundSize: 'cover'
     }

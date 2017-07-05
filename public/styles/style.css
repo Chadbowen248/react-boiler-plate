@@ -17,6 +17,7 @@
   margin-top: .5em;
   margin-bottom: .5em;
   max-width: 450px;
+  height: 350px;
   cursor: pointer;
 }
 .card:hover {
@@ -32,6 +33,6 @@
 }
 
 .card-image {
-  background-image: url('http://cdn.earthporm.com/wp-content/uploads/2014/08/amazing-trees-17.jpg');
+  /*background-image: url('http://cdn.earthporm.com/wp-content/uploads/2014/08/amazing-trees-17.jpg');*/
   height: 200px;
 }
