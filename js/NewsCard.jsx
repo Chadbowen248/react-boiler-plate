@@ -3,10 +3,15 @@ import 'bulma/css/bulma.css'
 
 class NewsCard extends Component {
   render () {
+    const backgroundImage = {
+      backgroundImage: `url(${this.props.details.urlToImage})`,
+      backgroundPosition: 'center',
+      backgroundSize: 'cover'
+    }
     return (
+      <a href={this.props.details.url}>
       <div className="card">
-        <div className="card-image">
-          <img src={this.props.details.urlToImage} alt="Image" />
+        <div className="card-image" style={backgroundImage}>
         </div>
         <div className="card-content">
           <div className="media">
@@ -18,6 +23,7 @@ class NewsCard extends Component {
           </div>
         </div>
       </div>
+      </a>
     )
   }
 }

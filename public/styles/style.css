@@ -30,9 +30,8 @@
       font-size: 1em;
 
 }
-img {
-  width: 460px;
-  height: 300px;
-  max-width: 100%;
-}
 
+.card-image {
+  background-image: url('http://cdn.earthporm.com/wp-content/uploads/2014/08/amazing-trees-17.jpg');
+  height: 200px;
+}
