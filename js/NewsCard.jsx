@@ -6,7 +6,7 @@ class NewsCard extends Component {
     const image = `url(${this.props.details.urlToImage})`
     const backupImage = 'url("http://media.comicbook.com/uploads1/2015/08/rick-and-morty---header-147026.jpg")'
     const backgroundImage = {
-      backgroundImage: !this.props.details.urlToImage ? image : backupImage,
+      backgroundImage: this.props.details.urlToImage ? image : backupImage,
       backgroundPosition: 'center',
       backgroundSize: 'cover'
     }

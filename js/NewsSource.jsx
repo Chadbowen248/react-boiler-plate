@@ -7,7 +7,7 @@ class NewsSource extends Component {
     super(props)
     this.toggleClass = this.toggleClass.bind(this)
     this.state = { articles: [], active: false }
-  }
+  } 
 
   toggleClass () {
     const currentState = this.state.active

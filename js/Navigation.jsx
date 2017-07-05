@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router"
 
-const Navigation = React.createClass({
+class Navigation extends React.Component{
   render() {
     return (
       <div className="nav">
@@ -16,7 +16,7 @@ const Navigation = React.createClass({
       </div>
     )
   }
-})
+}
 
 export default Navigation
 
