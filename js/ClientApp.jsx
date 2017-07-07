@@ -1,26 +1,15 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { BrowserRouter, Match } from 'react-router'
-import Navigation from './Navigation'
-import Landing from './Landing'
-import News from './News'
-import 'react-rpm'
-import '../public/styles/normalize.css'
-import '../public/styles/style.css'
-import '../public/styles/nav.css'
+import App from './App.jsx'
 
-class App extends React.Component {
-  render () {
-    return (
-      <BrowserRouter>
-        <div>
-          <Navigation />
-          <Match exactly pattern='/' component={Landing} />
-          <Match pattern='/news' component={News} />
-        </div>
-      </BrowserRouter>
-    )
-  }
+const renderApp = () => {
+render(<App />, document.getElementById('app'))
 }
 
-render(<App />, document.getElementById('app'))
+renderApp()
+ if(module.hot) {
+   module.hot.accept('./App', () => {
+     renderApp()
+   })
+ }
+
