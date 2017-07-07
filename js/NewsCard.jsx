@@ -1,19 +1,22 @@
 import React, { Component } from "react"
+import Modal from './Modal.jsx'
 import "bulma/css/bulma.css"
 
 class NewsCard extends Component {
   constructor(props) {
     super(props)
+    this.closeModal = this.closeModal.bind(this)
+    this.openModal = this.openModal.bind(this)
     this.state = { modalActive: false }
   }
 
-  render() {
-    const openModal = () => {
+    openModal () {
       this.setState({ modalActive: true })
     }
-    const closeModal = () => {
+    closeModal () {
       this.setState({ modalActive: false })
     }
+  render() {
     const image = `url(${this.props.details.urlToImage})`
     const backupImage = 'url("http://media.comicbook.com/uploads1/2015/08/rick-and-morty---header-147026.jpg")'
     const backgroundImage = {
@@ -23,7 +26,7 @@ class NewsCard extends Component {
     }
     return (
       <div>
-        <div className="card" onClick={openModal}>
+        <div className="card" onClick={this.openModal}>
           <div className="card-image" style={backgroundImage} />
           <div className="card-content">
             <div className="media">
@@ -35,29 +38,7 @@ class NewsCard extends Component {
             </div>
           </div>
         </div>
-        {/*<div className={this.state.modalActive ? "modal is-active" : "modal"}>
-          <div className="modal-background" onClick={closeModal} />
-          <div className="modal-content" />
-          <p className="image is-4by3">
-            <img src="http://bulma.io/images/placeholders/1280x960.png" />
-          </p>
-          <button className="modal-close" onClick={closeModal} />
-        </div>*/}
-
-        <div className={this.state.modalActive ? "modal is-active" : "modal"}>
-          <div className="modal-background" onClick={closeModal}/>
-          <div className="modal-content">
-            <div className="custom-modal">
-             <p className="modal-title"> {this.props.details.title} </p>
-            <p className="image">
-              <img src={this.props.details.urlToImage} />
-            </p>
-            <p>{this.props.details.description}</p>
-            <a className="button is-primary is-outlined" href={this.props.details.url}>Full Story</a>
-            </div>
-          </div>
-          <button className="modal-close is-large" />
-        </div>
+        <Modal modalActive={this.state.modalActive} details={this.props.details} closeModal={this.closeModal}/>
       </div>
     )
   }
