@@ -4,15 +4,18 @@ import "../public/styles/news.css"
 
 class News extends React.Component {
   render() {
-    const sources = [ 
-     "bbc-news",
+    const sources = [
+      "bbc-news",
       "the-washington-post",
       "associated-press",
       "cnn",
       "google-news",
       "buzzfeed",
       "mashable",
-      "techcrunch"
+      "techcrunch",
+      "the-huffington-post",
+      "the-new-york-times",
+      "new-scientist"
     ]
 
     return (

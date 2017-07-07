@@ -27,7 +27,17 @@
     cursor: pointer;
 }
 
+.custom-modal {
+    background-color: #fff;
+    padding: 1em;
+}
 
+.modal-title {
+    font-size: 1em;
+    font-family: 'Fjalla One';
+    line-height: 1.5em;
+    padding-bottom: 15px;
+}
 
 
 .show-news {
