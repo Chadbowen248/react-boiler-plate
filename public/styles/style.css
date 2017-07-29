@@ -1,5 +1,9 @@
 #app > [data-reactroot] { width: 100vw; }
 
+*:focus {
+  outline: none;
+}
+
 .page-container {
     width: 85vw;
     margin-left: 15vw;

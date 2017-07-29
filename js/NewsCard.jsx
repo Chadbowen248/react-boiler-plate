@@ -1,6 +1,6 @@
 import React, { Component } from "react"
-import Modal from './Modal.jsx'
 import "bulma/css/bulma.css"
+import Modal from './Modal'
 
 class NewsCard extends Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class NewsCard extends Component {
     }
     return (
       <div>
-        <div className="card" onClick={this.openModal}>
+        <button className="card" onClick={this.openModal}>
           <div className="card-image" style={backgroundImage} />
           <div className="card-content">
             <div className="media">
@@ -37,7 +37,7 @@ class NewsCard extends Component {
               </div>
             </div>
           </div>
-        </div>
+        </button>
         <Modal modalActive={this.state.modalActive} details={this.props.details} closeModal={this.closeModal}/>
       </div>
     )
