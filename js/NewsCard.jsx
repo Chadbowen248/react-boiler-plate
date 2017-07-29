@@ -1,6 +1,6 @@
 import React, { Component } from "react"
-import Modal from './Modal.jsx'
 import "bulma/css/bulma.css"
+import Modal from './Modal'
 
 class NewsCard extends Component {
   constructor(props) {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
-import NewsCard from './NewsCard.jsx'
+import NewsCard from './NewsCard'
 
 class NewsSource extends Component {
   constructor (props) {
@@ -9,10 +9,6 @@ class NewsSource extends Component {
     this.state = { articles: [], active: false }
   } 
 
-  toggleClass () {
-    const currentState = this.state.active
-    this.setState({ active: !currentState })
-  }
 
   componentDidMount () {
     const APIkey = '&sortBy=top&apiKey=26ce81bcd5214311bb4c8d1bd8761e20'
@@ -23,6 +19,11 @@ class NewsSource extends Component {
     })
   }
 
+  toggleClass () {
+    const currentState = this.state.active
+    this.setState({ active: !currentState })
+  }
+  
   render () {
     return (
       <div className="news-container">
@@ -33,7 +34,6 @@ class NewsSource extends Component {
           {Object.keys(this.state.articles).map(index =>
             <NewsCard
               key={index}
-              index={index}
               details={this.state.articles[index]}
               source={this.props.source}
             />

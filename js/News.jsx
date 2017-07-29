@@ -1,5 +1,5 @@
 import React from "react"
-import NewsSource from "./NewsSource.jsx"
+import NewsSource from "./NewsSource"
 import "../public/styles/news.css"
 
 class News extends React.Component {
