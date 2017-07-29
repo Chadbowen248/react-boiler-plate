@@ -1,8 +1,8 @@
 import React from "react"
-import NewsSource from "./NewsSource"
+import NewsSourceContainer from "./NewsSourceContainer"
 import "../public/styles/news.css"
 
-const News = () => {
+const NewsContainer = () => {
   const sources = [
     "bbc-news",
     "the-washington-post",
@@ -19,9 +19,9 @@ const News = () => {
 
   return (
     <div className="page-container news">
-      {sources.map(index => <NewsSource source={index} key={index} />)}
+      {sources.map(index => <NewsSourceContainer source={index} key={index} />)}
     </div>
   )
 }
 
-export default News
+export default NewsContainer
