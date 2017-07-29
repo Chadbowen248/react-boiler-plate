@@ -3,5 +3,8 @@
     "airbnb",
     "prettier",
     "prettier/react"
+  ],
+  "plugins": [
+    "prettier"
   ]
 }

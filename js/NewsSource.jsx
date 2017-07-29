@@ -30,7 +30,11 @@ class NewsSource extends Component {
         </div>
         <div className={this.state.active ? "show-news" : "news-default"}>
           {Object.keys(this.state.articles).map(index =>
-            <NewsCard key={index} index={index} details={this.state.articles[index]} source={this.props.source} />
+            <NewsCard
+              key={index}
+              details={this.state.articles[index]}
+              source={this.props.source}
+            />
           )}
         </div>
       </div>
