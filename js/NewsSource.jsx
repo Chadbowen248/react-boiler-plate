@@ -1,5 +1,5 @@
 import React from 'react'
-import NewsCard from "./NewsCard"
+import NewsCardContainer from "./NewsCardContainer"
 
 const NewsSource = (props) => 
         <div className="news-container">
@@ -8,7 +8,7 @@ const NewsSource = (props) =>
         </div>
         <div className={props.isActive ? "show-news" : "news-default"}>
           {Object.keys(props.articles).map(index =>
-            <NewsCard
+            <NewsCardContainer
               key={index}
               details={props.articles[index]}
               source={props.source}
