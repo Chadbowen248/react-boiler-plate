@@ -3,7 +3,7 @@ import { string, shape, func, bool } from "prop-types"
 
 const Modal = props =>
   <div className={props.modalActive ? "modal is-active" : "modal"}>
-    <div className="modal-background" onClick={props.closeModal} role="button" tabIndex="0"/>
+    <div className="modal-background" onClick={props.closeModal} role="button" tabIndex="0" />
     <div className="modal-content">
       <div className="custom-modal">
         <p className="modal-title">
