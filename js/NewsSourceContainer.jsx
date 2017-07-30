@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import Axios from "axios"
+import { string } from "prop-types"
 import NewsSource from "./NewsSource"
 
 class NewsSourceContainer extends Component {
@@ -33,4 +34,9 @@ class NewsSourceContainer extends Component {
     )
   }
 }
+
+NewsSourceContainer.propTypes = {
+  source: string.isRequired
+}
+
 export default NewsSourceContainer

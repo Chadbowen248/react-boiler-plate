@@ -1,5 +1,6 @@
 import React from 'react'
-import NewsCardContainer from "./NewsCardContainer"
+import {string, arrayOf, bool, shape, func} from "prop-types"
+import NewsCard from "./NewsCard"
 
 const NewsSource = (props) => 
         <div className="news-container">
@@ -8,7 +9,7 @@ const NewsSource = (props) =>
         </div>
         <div className={props.isActive ? "show-news" : "news-default"}>
           {Object.keys(props.articles).map(index =>
-            <NewsCardContainer
+            <NewsCard
               key={index}
               details={props.articles[index]}
               source={props.source}
@@ -17,6 +18,13 @@ const NewsSource = (props) =>
         </div>
       </div>
 
+
+NewsSource.propTypes = {
+    source: string.isRequired,
+    isActive: bool.isRequired,
+    articles: arrayOf(shape).isRequired,
+    toggleClass: func.isRequired
+}
 
 
 export default NewsSource

@@ -1,4 +1,5 @@
 import React from "react"
+import { string } from "prop-types"
 
 const Home = props =>
   <div className="landing-page page-container" style={{ backgroundImage: `url(public/img/landing-page/1.jpg)` }}>
@@ -11,5 +12,10 @@ const Home = props =>
       </span>
     </div>
   </div>
+
+Home.propTypes = {
+  quote: string.isRequired,
+  author: string.isRequired
+}
 
 export default Home
