@@ -9,7 +9,11 @@ const Navigation = () =>
     <Link to={"/news"}>
       <h1>News</h1>
     </Link>
-    <h1>Weather</h1>
+    <Link to={"/comics"}>
+      <h1>Comics</h1>
+    </Link>
+    
+    
   </div>
 
 export default Navigation
