@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Match } from "react-router";
+import { BrowserRouter, Match, Router } from "react-router";
 import Navigation from "./Navigation";
 import HomeContainer from "./HomeContainer";
 import NewsContainer from "./NewsContainer";
@@ -37,13 +37,14 @@ class App extends React.Component {
   }
 
   render() {
+    // const test = <ComicsContainer comics={this.state.comics}/>
     return (
       <BrowserRouter>
         <div>
           <Navigation />
           <Match exactly pattern="/" component={HomeContainer} />
           <Match pattern="/news" component={NewsContainer} />
-          <Match pattern="/comics" component={ComicsContainer} />
+          <Match pattern="/comics" render={() => <ComicsContainer comics={this.state.comics} /> }/>
         </div>
       </BrowserRouter>
     );
