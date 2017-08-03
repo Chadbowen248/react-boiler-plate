@@ -12,8 +12,6 @@ const Navigation = () =>
     <Link to={"/comics"}>
       <h1>Comics</h1>
     </Link>
-    
-    
   </div>
 
 export default Navigation

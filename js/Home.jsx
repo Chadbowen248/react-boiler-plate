@@ -14,8 +14,13 @@ const Home = props =>
   </div>
 
 Home.propTypes = {
-  quote: string.isRequired,
-  author: string.isRequired
+  quote: string,
+  author: string
+}
+
+Home.defaultProps = {
+  quote: "",
+  author: ""
 }
 
 export default Home

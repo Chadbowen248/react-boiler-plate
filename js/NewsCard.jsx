@@ -48,8 +48,15 @@ class NewsCard extends Component {
 NewsCard.propTypes = {
   details: shape({
     title: string.isRequired,
-    urlToImage: string.isRequired
+    urlToImage: string
   }).isRequired
+}
+
+NewsCard.defaultProps = {
+  details: shape({
+    title: string,
+    urlToImage: string
+  })
 }
 
 export default NewsCard
