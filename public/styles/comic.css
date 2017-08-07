@@ -1,0 +1,10 @@
+.comic-page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.comic {
+    width: 13em;
+    height: 26em;
+}

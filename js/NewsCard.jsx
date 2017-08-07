@@ -54,8 +54,8 @@ NewsCard.propTypes = {
 
 NewsCard.defaultProps = {
   details: shape({
-    title: string,
-    urlToImage: string
+    title: '',
+    urlToImage: ''
   })
 }
 
