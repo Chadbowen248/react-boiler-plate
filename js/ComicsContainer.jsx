@@ -7,6 +7,10 @@ import "../public/styles/landing.css"
 const ComicsContainer = props => {
   const all = props.comics
   const trades = props.comics.filter(index => index.title.endsWith("TP") || index.title.endsWith("HC"))
+  const imageComics = Object.keys(!props.isChecked ? trades : all).map(index => {
+    const comic = !props.isChecked ? trades[index] : all[index]
+    return <ImageComic key={index} {...comic} />
+  })
 
   return (
     <div className="page-container">
@@ -16,13 +20,11 @@ const ComicsContainer = props => {
         <span>show trades</span>
       </h4>
       <div className="comic-page">
-        {Object.keys(!props.isChecked ? trades : all).map(index => {
-          const comic = !props.isChecked ? trades[index] : all[index]
-          return <ImageComic key={index} {...comic} />
-        })}
+        {imageComics}
       </div>
     </div>
-  )}
+  )
+}
 ComicsContainer.propTypes = {
   comics: arrayOf(shape).isRequired
 }
