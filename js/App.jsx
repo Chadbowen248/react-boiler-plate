@@ -12,7 +12,7 @@ import "../public/styles/nav.css"
 class App extends React.Component {
   constructor() {
     super()
-    this.state = { imageComics: [], isChecked: true, marvelComics: [], marvelischecked: true }
+    this.state = { imageComics: [], imageIsChecked: true, marvelComics: []}
     this.showTrades = this.showTrades.bind(this)
     this.getComics = this.getComics.bind(this)
   }
@@ -44,7 +44,7 @@ class App extends React.Component {
           } else {
             comics.push({
               title: arr[0][i],
-              image: arr[1][i],
+              image: arr[1][i+3],
               href: `https://imagecomics.com${arr[2][i]}`
             })
           }
@@ -54,9 +54,9 @@ class App extends React.Component {
       .then(returnedComics => this.setState({ [publisher]: returnedComics }))
   }
 
-  showTrades() {
-    const currentState = this.state.isChecked
-    this.setState({ isChecked: !currentState })
+  showTrades(publisher) {
+    const currentState = this.state[publisher]
+    this.setState({ [publisher]: !currentState })
   }
 
   render() {
@@ -71,8 +71,9 @@ class App extends React.Component {
             render={() =>
               <ComicsContainer
                 comics={this.state.imageComics}
+                marvelComics={this.state.marvelComics}
                 showTrades={this.showTrades}
-                isChecked={this.state.isChecked}
+                imageIsChecked={this.state.imageIsChecked}
               />}
           />
         </div>
