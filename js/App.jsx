@@ -12,7 +12,7 @@ import "../public/styles/nav.css"
 class App extends React.Component {
   constructor() {
     super()
-    this.state = { imageComics: [], imageIsChecked: true, marvelComics: []}
+    this.state = { imageComics: [], imageIsChecked: true, marvelComics: [], darkHorseComics: []}
     this.showTrades = this.showTrades.bind(this)
     this.getComics = this.getComics.bind(this)
   }
@@ -23,8 +23,10 @@ class App extends React.Component {
     const year = date.getFullYear()
     const imageUrl = `https://wrapapi.com/use/chadbowen248/comics/comics/latest?wrapAPIKey=Z9JmPx0za31dMxIkLQJr88cFyIpeJCfJ&year=${year}&month=${month}`
     const marvelUrl = `https://wrapapi.com/use/chadbowen248/marvel/comics/0.0.1?wrapAPIKey=Z9JmPx0za31dMxIkLQJr88cFyIpeJCfJ&year=${year}&month=${month}`
+    const darkHorseUrl = 'https://wrapapi.com/use/chadbowen248/darkhorse/comics/0.0.1?wrapAPIKey=Z9JmPx0za31dMxIkLQJr88cFyIpeJCfJ'
     this.getComics(imageUrl, "imageComics")
     this.getComics(marvelUrl, "marvelComics")
+    this.getComics(darkHorseUrl, "darkHorseComics")
   }
 
   getComics(url, publisher) {
@@ -41,11 +43,17 @@ class App extends React.Component {
               date: arr[2][i],
               url: `https://imagecomics.com${arr[3][i]}`
             })
-          } else {
+          } else if(publisher === "marvel"){
             comics.push({
               title: arr[0][i],
               image: arr[1][i+3],
-              href: `https://imagecomics.com${arr[2][i]}`
+              href: arr[2][i]
+            })
+          } else {
+            comics.push({
+              title: arr[0][i],
+              image: arr[1][i],
+              href: arr[2][i]
             })
           }
         }

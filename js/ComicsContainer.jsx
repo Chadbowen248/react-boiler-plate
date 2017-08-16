@@ -20,11 +20,11 @@ const ComicsContainer = props => {
 
   return (
     <div className="page-container">
-      <h4>
+      <div className="news-source-title">
         <stong>IMAGE COMICS</stong>
         <input type="checkbox" onChange={() => props.showTrades("imageIsChecked")} />
         <span>show trades</span>
-      </h4>
+      </div>
       <div className="comic-page">
         {imageComics}
       </div>
