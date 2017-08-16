@@ -1,13 +1,14 @@
 import React from 'react'
 
-const MarvelComic = (props) => 
+const DarkHorseComic = (props) => 
+
 <div  className='comic'>
     <a href={props.href} target='blank'>
-    <img src={props.image} alt={props.title}/>
+    <img src={props.image.replace('100','300')} alt={props.title}/>
     <p className='comic-title'><strong>{props.title}</strong></p>
   
     </a>
 </div>
 
 
-export default MarvelComic
+export default DarkHorseComic

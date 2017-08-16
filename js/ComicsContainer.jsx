@@ -2,6 +2,7 @@ import React from "react"
 import { arrayOf, shape, bool, func } from "prop-types"
 import ImageComic from "./ImageComic"
 import MarvelComic from "./MarvelComic"
+import DarkHorseComic from "./DarkHorseComic"
 import "../public/styles/comic.css"
 import "../public/styles/landing.css"
 
@@ -16,6 +17,11 @@ const ComicsContainer = props => {
   const marvelComics = Object.keys(props.marvelComics).map(index => {
     const comic = props.marvelComics[index]
     return <MarvelComic key={index} {...comic} />
+  })
+
+  const DarkHorseComics = Object.keys(props.darkHorseComics).map(index => {
+    const comic = props.darkHorseComics[index]
+    return <DarkHorseComic key={index} {...comic} />
   })
 
   return (
@@ -33,6 +39,12 @@ const ComicsContainer = props => {
       </h4>
       <div className="comic-page">
         {marvelComics}
+      </div>
+      <h4>
+        <stong>DarkHorse COMICS</stong>
+      </h4>
+      <div className="comic-page">
+        {DarkHorseComics}
       </div>
     </div>
   )

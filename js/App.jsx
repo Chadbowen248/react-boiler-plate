@@ -43,7 +43,7 @@ class App extends React.Component {
               date: arr[2][i],
               url: `https://imagecomics.com${arr[3][i]}`
             })
-          } else if(publisher === "marvel"){
+          } else if(publisher === "marvelComics"){
             comics.push({
               title: arr[0][i],
               image: arr[1][i+3],
@@ -80,6 +80,7 @@ class App extends React.Component {
               <ComicsContainer
                 comics={this.state.imageComics}
                 marvelComics={this.state.marvelComics}
+                darkHorseComics={this.state.darkHorseComics}
                 showTrades={this.showTrades}
                 imageIsChecked={this.state.imageIsChecked}
               />}

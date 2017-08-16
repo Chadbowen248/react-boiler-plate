@@ -4,7 +4,7 @@ const ImageComic = (props) =>
 <div  className='comic'>
     <a href={props.url} target='blank'>
     <img src={props.image} alt={props.title}/>
-    <p><strong>{props.title}</strong></p>
+    <p className='comic-title'><strong>{props.title}</strong></p>
     <p>{props.date}</p>
   
     </a>
