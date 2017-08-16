@@ -1,12 +1,15 @@
 .comic-page {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    width: 100%;
+    justify-content: flex-start;
 }
 
 .comic {
-    width: 13em;
-    height: 26em;
+    width: 23%;
+    margin-left: 1%;
+    margin-right: 1%;
+    /* height: 27em; */
 }
 
 .comic-title {

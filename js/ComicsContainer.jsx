@@ -31,8 +31,10 @@ const ComicsContainer = props => {
         <input type="checkbox" onChange={() => props.showTrades("imageIsChecked")} />
         <span>show trades</span>
       </div>
+      <div className="center-me">
       <div className="comic-page">
         {imageComics}
+     
       </div>
       <h4>
         <stong>Marvel COMICS</stong>
@@ -45,6 +47,7 @@ const ComicsContainer = props => {
       </h4>
       <div className="comic-page">
         {DarkHorseComics}
+      </div>
       </div>
     </div>
   )
