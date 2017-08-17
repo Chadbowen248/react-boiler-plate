@@ -12,9 +12,10 @@ import "../public/styles/nav.css"
 class App extends React.Component {
   constructor() {
     super()
-    this.state = { imageComics: [], imageIsChecked: true, marvelComics: [], darkHorseComics: []}
+    this.state = { imageComics: [], imageIsChecked: false, marvelComics: [], darkHorseComics: []}
     this.showTrades = this.showTrades.bind(this)
     this.getComics = this.getComics.bind(this)
+    this.resetTrades = this.resetTrades.bind(this)
   }
 
   componentDidMount() {
@@ -67,6 +68,11 @@ class App extends React.Component {
     this.setState({ [publisher]: !currentState })
   }
 
+  resetTrades() {
+    this.setState({imageIsChecked: false})
+    console.log('reseting comics state')
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -83,6 +89,7 @@ class App extends React.Component {
                 darkHorseComics={this.state.darkHorseComics}
                 showTrades={this.showTrades}
                 imageIsChecked={this.state.imageIsChecked}
+                resetTrades={this.resetTrades}
               />}
           />
         </div>

@@ -6,51 +6,55 @@ import DarkHorseComic from "./DarkHorseComic"
 import "../public/styles/comic.css"
 import "../public/styles/landing.css"
 
-const ComicsContainer = props => {
-  const all = props.comics
-  const trades = props.comics.filter(index => index.title.endsWith("TP") || index.title.endsWith("HC"))
-  const imageComics = Object.keys(!props.imageIsChecked ? trades : all).map(index => {
-    const comic = !props.imageIsChecked ? trades[index] : all[index]
-    return <ImageComic key={index} {...comic} />
-  })
+class ComicsContainer extends React.Component {
+  componentWillUnmount() {
+    this.props.resetTrades()
+  }
+  render() {
+    const all = this.props.comics
+    const trades = this.props.comics.filter(index => index.title.endsWith("TP") || index.title.endsWith("HC"))
+    const imageComics = Object.keys(!this.props.imageIsChecked ? trades : all).map(index => {
+      const comic = !this.props.imageIsChecked ? trades[index] : all[index]
+      return <ImageComic key={index} {...comic} />
+    })
 
-  const marvelComics = Object.keys(props.marvelComics).map(index => {
-    const comic = props.marvelComics[index]
-    return <MarvelComic key={index} {...comic} />
-  })
+    const marvelComics = Object.keys(this.props.marvelComics).map(index => {
+      const comic = this.props.marvelComics[index]
+      return <MarvelComic key={index} {...comic} />
+    })
 
-  const DarkHorseComics = Object.keys(props.darkHorseComics).map(index => {
-    const comic = props.darkHorseComics[index]
-    return <DarkHorseComic key={index} {...comic} />
-  })
+    const DarkHorseComics = Object.keys(this.props.darkHorseComics).map(index => {
+      const comic = this.props.darkHorseComics[index]
+      return <DarkHorseComic key={index} {...comic} />
+    })
 
-  return (
-    <div className="page-container">
-      <div className="news-source-title">
-        <stong>IMAGE COMICS</stong>
-        <input type="checkbox" onChange={() => props.showTrades("imageIsChecked")} />
-        <span>show trades</span>
+    return (
+      <div className="page-container">
+        <div className="news-source-title">
+          <stong>IMAGE COMICS</stong>
+          <input type="checkbox" onChange={() => this.props.showTrades("imageIsChecked")} />
+          <span>show all</span>
+        </div>
+        <div className="center-me">
+          <div className="comic-page">
+            {imageComics}
+          </div>
+          <h4>
+            <stong>Marvel COMICS</stong>
+          </h4>
+          <div className="comic-page">
+            {marvelComics}
+          </div>
+          <h4>
+            <stong>DarkHorse COMICS</stong>
+          </h4>
+          <div className="comic-page">
+            {DarkHorseComics}
+          </div>
+        </div>
       </div>
-      <div className="center-me">
-      <div className="comic-page">
-        {imageComics}
-     
-      </div>
-      <h4>
-        <stong>Marvel COMICS</stong>
-      </h4>
-      <div className="comic-page">
-        {marvelComics}
-      </div>
-      <h4>
-        <stong>DarkHorse COMICS</stong>
-      </h4>
-      <div className="comic-page">
-        {DarkHorseComics}
-      </div>
-      </div>
-    </div>
-  )
+    )
+  }
 }
 ComicsContainer.propTypes = {
   comics: arrayOf(shape).isRequired,
