@@ -70,7 +70,6 @@ class App extends React.Component {
 
   resetTrades() {
     this.setState({imageIsChecked: false})
-    console.log('reseting comics state')
   }
 
   render() {

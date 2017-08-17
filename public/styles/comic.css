@@ -1,7 +1,12 @@
+
+/* @import url('https://fonts.googleapis.com/css?family=Fjalla+One|Raleway'); */
+@import url('https://fonts.googleapis.com/css?family=Coda:800');
 .comic-page {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
     justify-content: flex-start;
 }
 
@@ -13,5 +18,22 @@
 }
 
 .comic-title {
-    font-size: .8em
+    font-size: .7em;
+}
+
+
+.comic-heading-title {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    font-size: 65px;
+    transform: scale(1, 1.7);
+    color: #fff;
+    margin-left: .5em;
+    font-family: 'Coda'
+}
+
+.comic-heading-background {
+    height: 76px;
+    background-color: tomato;
 }
