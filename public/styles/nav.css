@@ -1,17 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Raleway');
+@import url('https://fonts.googleapis.com/css?family=Coda:800');
 
 .nav {
   background: #485563;
   display: flex;
-  flex-direction: column;
-  height: 100vh;
-  color: #333;
-  position: fixed;
-  font-family: 'Fjalla One', sans-serif;
+  color: #fff;
+   position: fixed; 
+  font-family: 'Coda', sans-serif;
   font-size: 1.5vw;
-  width: 15vw;
-  align-items: flex-end;
-  padding-top: 1em;
+   width: 100vw; 
+   padding-left: 35px;
+
 }
 
 .nav a {

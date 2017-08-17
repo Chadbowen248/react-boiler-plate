@@ -5,9 +5,9 @@
 }
 
 .page-container {
-    width: 85vw;
-    margin-left: 15vw;
+    width: 100vw;
     height: 100vh;
+    padding-top: 70px;
 }
 
 .copy {
@@ -17,7 +17,7 @@
 }
 
 .card {
-  width: 25vw;
+  width: 22vw;
   margin-top: .5em;
   margin-bottom: .5em;
   max-width: 450px;

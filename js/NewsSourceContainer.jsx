@@ -14,7 +14,7 @@ class NewsSourceContainer extends Component {
     const APIkey = "&sortBy=top&apiKey=26ce81bcd5214311bb4c8d1bd8761e20"
     const endPoint = "https://newsapi.org/v1/articles?source="
     Axios.get(endPoint + this.props.source + APIkey).then(res => {
-      const trimmedArr = res.data.articles.slice(0, 9)
+      const trimmedArr = res.data.articles.slice(0, 8)
       this.setState({ articles: trimmedArr })
     })
   }
