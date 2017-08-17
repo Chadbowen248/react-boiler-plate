@@ -1,4 +1,5 @@
 import React from 'react'
+import { string } from "prop-types"
 
 const ImageComic = (props) => 
 <div  className='comic'>
@@ -10,5 +11,12 @@ const ImageComic = (props) =>
     </a>
 </div>
 
+
+ImageComic.propTypes = {
+    url: string.isRequired,
+    image: string.isRequired,
+    title: string.isRequired,
+    date: string.isRequired,
+  }
 
 export default ImageComic

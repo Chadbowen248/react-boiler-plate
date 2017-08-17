@@ -1,4 +1,5 @@
 import React from "react";
+import { string } from "prop-types"
 
 const MarvelComic = props => {
     const missingImage = props.image.indexOf('_not_');
@@ -19,5 +20,11 @@ const MarvelComic = props => {
     </div>
   );
 };
+
+MarvelComic.propTypes = {
+  image: string.isRequired,
+  title: string.isRequired,
+  href: string.isRequired,
+}
 
 export default MarvelComic;

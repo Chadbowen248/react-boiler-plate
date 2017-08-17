@@ -38,7 +38,7 @@ class ComicsContainer extends React.Component {
       <div className="page-container">
         <div className="comic-heading-background">
           <h1 className="comic-heading-title">IMAGE COMICS</h1>
-        <span className={!this.props.imageIsChecked ? 'show-all__inactive' : 'show-all__active' } onClick={() => this.props.showTrades("imageIsChecked")}>show all</span>
+        <span className={!this.props.imageIsChecked ? 'show-all__inactive' : 'show-all__active' } onClick={() => this.props.showTrades("imageIsChecked")} role="button" tabIndex="0">show all</span>
         </div>
 
         <div className="comic-page">
@@ -66,8 +66,10 @@ class ComicsContainer extends React.Component {
 ComicsContainer.propTypes = {
   comics: arrayOf(shape).isRequired,
   marvelComics: arrayOf(shape).isRequired,
+  darkHorseComics: arrayOf(shape).isRequired,
   imageIsChecked: bool.isRequired,
-  showTrades: func.isRequired
+  showTrades: func.isRequired,
+  resetTrades: func.isRequired
 };
 
 export default ComicsContainer;
