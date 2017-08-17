@@ -38,7 +38,7 @@ class ComicsContainer extends React.Component {
       <div className="page-container">
         <div className="comic-heading-background">
           <h1 className="comic-heading-title">IMAGE COMICS</h1>
-        <span onClick={() => this.props.showTrades("imageIsChecked")}>show all</span>
+        <span className={!this.props.imageIsChecked ? 'show-all__inactive' : 'show-all__active' } onClick={() => this.props.showTrades("imageIsChecked")}>show all</span>
         </div>
 
         <div className="comic-page">
