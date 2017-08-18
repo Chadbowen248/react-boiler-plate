@@ -22,15 +22,17 @@ class App extends React.Component {
     this.getComics = this.getComics.bind(this);
     this.resetTrades = this.resetTrades.bind(this);
   }
+  // "https://wrapapi.com/use/chadbowen248/newnewnew/comics/0.0.1?wrapAPIKey=Z9JmPx0za31dMxIkLQJr88cFyIpeJCfJ&year=2017&month=03"
 
   componentDidMount() {
     const date = new Date();
-    const month = date.getMonth() + 1;
+    let month = (date.getMonth() + 1).toString();
+    month = month.length < 2 ? `0${month}` : month;
     const year = date.getFullYear();
-    const imageUrl = `https://wrapapi.com/use/chadbowen248/comics/comics/latest?wrapAPIKey=Z9JmPx0za31dMxIkLQJr88cFyIpeJCfJ&year=${year}&month=${month}`;
-    const marvelUrl = `https://wrapapi.com/use/chadbowen248/marvel/comics/0.0.1?wrapAPIKey=Z9JmPx0za31dMxIkLQJr88cFyIpeJCfJ&year=${year}&month=${month}`;
-    const darkHorseUrl =
-      "https://wrapapi.com/use/chadbowen248/darkhorse/comics/0.0.1?wrapAPIKey=Z9JmPx0za31dMxIkLQJr88cFyIpeJCfJ";
+    const apiKey = "wrapAPIKey=Z9JmPx0za31dMxIkLQJr88cFyIpeJCfJ";
+    const imageUrl = `https://wrapapi.com/use/chadbowen248/comics/comics/latest?${apiKey}&year=${year}&month=${month}`;
+    const marvelUrl = `https://wrapapi.com/use/chadbowen248/newnewnew/comics/0.0.1?${apiKey}&year=${year}&month=${month}`;
+    const darkHorseUrl = `https://wrapapi.com/use/chadbowen248/darkhorse/comics/0.0.1?${apiKey}`;
     this.getComics(imageUrl, "imageComics");
     this.getComics(marvelUrl, "marvelComics");
     this.getComics(darkHorseUrl, "darkHorseComics");
@@ -43,19 +45,12 @@ class App extends React.Component {
       .then(arr => {
         const comics = [];
         arr[0].map((index, i) => {
-         
           if (publisher === "imageComics") {
             comics.push({
               title: arr[0][i],
               image: arr[1][i],
               date: arr[2][i],
-              url: `https://imagecomics.com${arr[3][i]}`
-            });
-          } else if (publisher === "marvelComics") {
-            comics.push({
-              title: arr[0][i],
-              image: arr[1][i + 3],
-              href: arr[2][i]
+              href: arr[3][i]
             });
           } else {
             comics.push({
@@ -64,7 +59,7 @@ class App extends React.Component {
               href: arr[2][i]
             });
           }
-          return index
+          return index;
         });
         return comics;
       })
