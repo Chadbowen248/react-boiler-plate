@@ -22,7 +22,6 @@ class App extends React.Component {
     this.getComics = this.getComics.bind(this);
     this.resetTrades = this.resetTrades.bind(this);
   }
-  // "https://wrapapi.com/use/chadbowen248/newnewnew/comics/0.0.1?wrapAPIKey=Z9JmPx0za31dMxIkLQJr88cFyIpeJCfJ&year=2017&month=03"
 
   componentDidMount() {
     const date = new Date();

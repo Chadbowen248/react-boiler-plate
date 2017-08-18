@@ -1,26 +1,20 @@
 .landing-page {
     display: flex;
-    background-size: cover;
-    background-position: center;
-    background-image: 
-    linear-gradient(
-      rgba(31,31,31, .1), 
-      rgba(0, 0, 0, .9)
-    )
+
 }
 
 .quote-container {
   height: 30vh;
   width: 100vw;
   color: #fff;
-  font-family: 'Heebo', sans-serif;
+  font-family: 'Coda', sans-serif;
   font-size: 2vw;
   padding: 1em;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  background-color: rgba(0,0,0,.5);
+  /* background-color: rgba(0,0,0,.5); */
 }
 
 .byline {

@@ -2,7 +2,7 @@ import React from "react"
 import { string } from "prop-types"
 
 const Home = props =>
-  <div className="landing-page page-container" style={{ backgroundImage: `url(public/img/landing-page/1.jpg)` }}>
+  <div className="landing-page page-container" style={{ backgroundColor: 'tomato' }}>
     <div className="quote-container">
       <h4>
         {props.quote}
