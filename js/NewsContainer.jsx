@@ -1,6 +1,6 @@
 import React from "react"
 import NewsSourceContainer from "./NewsSourceContainer"
-import "../public/styles/news.css"
+import "../public/styles/news.scss"
 
 const NewsContainer = () => {
   const sources = [

@@ -1,0 +1,41 @@
+
+
+*:focus {
+  outline: none;
+}
+
+img {
+  width: 100%;
+}
+
+.page-container {
+    padding-top: 70px;
+    height: 100vh;
+}
+
+.card {
+    width: 22vw;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    max-width: 450px;
+    padding: 1em;
+    height: 300px;
+    background-color: #fff;
+    border: solid #ccc 1px;
+    cursor: pointer;
+}
+.card:hover {
+  box-shadow: 0 6px 6px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+}
+.title {
+  font-family: 'Fjalla One', sans-serif;
+    line-height: 1.5em;
+}
+.title.is-4 {
+      font-size: .8em;
+
+}
+
+.card-image {
+  height: 200px;
+}

@@ -5,9 +5,9 @@ import Navigation from "./Navigation";
 import HomeContainer from "./HomeContainer";
 import NewsContainer from "./NewsContainer";
 import ComicsContainer from "./ComicsContainer";
-import "../public/styles/normalize.css";
-import "../public/styles/style.css";
-import "../public/styles/nav.css";
+import "../public/styles/normalize.scss";
+import "../public/styles/style.scss";
+import "../public/styles/nav.scss";
 
 class App extends React.Component {
   constructor() {

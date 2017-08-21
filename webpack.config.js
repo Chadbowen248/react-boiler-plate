@@ -49,7 +49,7 @@ module.exports = {
         loader: 'babel-loader'
       },
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         use: [
           'style-loader',
           {
@@ -57,7 +57,8 @@ module.exports = {
             options: {
               url: false
             }
-          }
+          },
+          {loader: "sass-loader"} // compiles Sass to CSS
         ]
       }
     ]

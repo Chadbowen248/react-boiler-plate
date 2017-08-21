@@ -1,7 +1,7 @@
 import React from "react"
 import Axios from "axios"
 import Home from "./Home"
-import "../public/styles/landing.css"
+import "../public/styles/landing.scss"
 
 class HomeContainer extends React.Component {
   constructor(props) {

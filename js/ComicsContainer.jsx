@@ -3,8 +3,8 @@ import { arrayOf, shape, bool, func } from "prop-types";
 import ImageComic from "./ImageComic";
 import MarvelComic from "./MarvelComic";
 import DarkHorseComic from "./DarkHorseComic";
-import "../public/styles/comic.css";
-import "../public/styles/landing.css";
+import "../public/styles/comic.scss";
+import "../public/styles/landing.scss";
 
 class ComicsContainer extends React.Component {
   componentWillUnmount() {
