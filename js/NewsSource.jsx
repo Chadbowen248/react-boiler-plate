@@ -4,10 +4,10 @@ import NewsCard from "./NewsCard"
 
 const NewsSource = props =>
   <div className="news-container">
-    <div className="news-source-title" onClick={props.toggleClass} role="button" tabIndex="0">
+    <div className="news-container__title" onClick={props.toggleClass} role="button" tabIndex="0">
       {props.source}
     </div>
-    <div className={props.isActive ? "show-news" : "news-default"}>
+    <div className={props.isActive ? "news-container--show-news" : "news-container--hide-news"}>
       {Object.keys(props.articles).map(index =>
         <NewsCard key={index} details={props.articles[index]} source={props.source} />
       )}

@@ -7,7 +7,7 @@ import NewsContainer from "./NewsContainer";
 import ComicsContainer from "./ComicsContainer";
 import "../public/styles/normalize.scss";
 import "../public/styles/style.scss";
-import "../public/styles/nav.scss";
+
 
 class App extends React.Component {
   constructor() {

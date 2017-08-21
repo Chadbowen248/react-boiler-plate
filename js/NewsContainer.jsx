@@ -1,6 +1,6 @@
 import React from "react"
 import NewsSourceContainer from "./NewsSourceContainer"
-import "../public/styles/news.scss"
+
 
 const NewsContainer = () => {
   const sources = [
@@ -18,7 +18,7 @@ const NewsContainer = () => {
   ]
 
   return (
-    <div className="page-container news">
+    <div className="wrapper wrapper--news">
       {sources.map(index => <NewsSourceContainer source={index} key={index} />)}
     </div>
   )

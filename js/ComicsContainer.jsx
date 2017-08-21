@@ -3,8 +3,8 @@ import { arrayOf, shape, bool, func } from "prop-types";
 import ImageComic from "./ImageComic";
 import MarvelComic from "./MarvelComic";
 import DarkHorseComic from "./DarkHorseComic";
-import "../public/styles/comic.scss";
-import "../public/styles/landing.scss";
+import "../public/styles/style.scss";
+
 
 class ComicsContainer extends React.Component {
   componentWillUnmount() {
@@ -35,28 +35,28 @@ class ComicsContainer extends React.Component {
     });
 
     return (
-      <div className="page-container">
-        <div className="comic-heading-background">
-          <h1 className="comic-heading-title">IMAGE COMICS</h1>
+      <div className="wrapper">
+        <div className="publisher-heading">
+          <h1 className="publisher-heading__title">IMAGE COMICS</h1>
         <span className={!this.props.imageIsChecked ? 'show-all__inactive' : 'show-all__active' } onClick={() => this.props.showTrades("imageIsChecked")} role="button" tabIndex="0">show all</span>
         </div>
 
-        <div className="comic-page">
+        <div className="comic-container">
           {imageComics}
         </div>
 
-        <div className="comic-heading-background">
-          <h1 className="comic-heading-title">MARVEL COMICS</h1>
+        <div className="publisher-heading">
+          <h1 className="publisher-heading__title">MARVEL COMICS</h1>
         </div>
-        <div className="comic-page">
+        <div className="comic-container">
           {marvelComics}
         </div>
-        <div className="comic-heading-background">
-          <h1 className="comic-heading-title">DARKHORSE COMICS</h1>
+        <div className="publisher-heading">
+          <h1 className="publisher-heading__title">DARKHORSE COMICS</h1>
         </div>
 
 
-        <div className="comic-page">
+        <div className="comic-container">
           {DarkHorseComics}
         </div>
       </div>
