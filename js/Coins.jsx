@@ -14,15 +14,13 @@ class Coins extends React.Component {
       )
     );
   }
-  // return arr.push({ [res.data.ticker.base]: res.data.ticker.price });
 
   render() {
     return (
       <div className="wrapper">
-        {/* {this.state.map(coin => {
-        console.log(coin)
-      })} */}
-        Coins
+        <h1>BTC: {this.state.BTC}</h1>
+        <h1>ETH: {this.state.ETH}</h1>
+        <h1>XRP: {this.state.XRP}</h1>
       </div>
     );
   }
