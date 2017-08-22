@@ -12,6 +12,9 @@ const Navigation = () =>
     <Link className='nav__link' to={"/comics"}>
      Comics
     </Link>
+    <Link className='nav__link' to={"/coins"}>
+     Coins
+    </Link>
   </div>
 
 export default Navigation

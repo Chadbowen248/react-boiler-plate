@@ -5,6 +5,7 @@ import Navigation from "./Navigation";
 import HomeContainer from "./HomeContainer";
 import NewsContainer from "./NewsContainer";
 import ComicsContainer from "./ComicsContainer";
+import Coins from "./Coins";
 import "../public/styles/normalize.scss";
 import "../public/styles/style.scss";
 
@@ -93,6 +94,7 @@ class App extends React.Component {
                 resetTrades={this.resetTrades}
               />}
           />
+          <Match pattern="/coins" component={Coins} />
         </div>
       </BrowserRouter>
     );

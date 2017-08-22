@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Coda:800');
 // GLOBAL
 *:focus {
-  outline: 3px solid orange;
+  outline: 1px solid orange;
 }
 
 *{
@@ -63,11 +63,6 @@ button {
 }
 
 // LANDING PAGE
-
-.landing-page {
-  display: flex;
-
-}
 
 .quote-container {
 height: 30vh;
