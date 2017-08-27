@@ -7,6 +7,7 @@ import "../public/styles/style.scss";
 
 
 class ComicsContainer extends React.Component {
+
   componentWillUnmount() {
     this.props.resetTrades();
   }

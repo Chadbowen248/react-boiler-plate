@@ -19,9 +19,9 @@ class App extends React.Component {
       marvelComics: [],
       darkHorseComics: []
     };
-    this.showTrades = this.showTrades.bind(this);
+    // this.showTrades = this.showTrades.bind(this);
     this.getComics = this.getComics.bind(this);
-    this.resetTrades = this.resetTrades.bind(this);
+    // this.resetTrades = this.resetTrades.bind(this);
   }
 
   componentDidMount() {
@@ -66,12 +66,12 @@ class App extends React.Component {
       .then(returnedComics => this.setState({ [publisher]: returnedComics }));
   }
 
-  showTrades(publisher) {
+  showTrades = (publisher) => {
     const currentState = this.state[publisher];
     this.setState({ [publisher]: !currentState });
   }
 
-  resetTrades() {
+  resetTrades = () => {
     this.setState({ imageIsChecked: false });
   }
 
