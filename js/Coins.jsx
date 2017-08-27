@@ -2,10 +2,9 @@ import React from "react";
 import Axios from "axios";
 
 class Coins extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
+
+  state = {};
+  
   componentWillMount() {
     const coins = ["xrp", "eth", "btc", "ltc"];
     coins.map(coin =>

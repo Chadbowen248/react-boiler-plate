@@ -2,12 +2,8 @@ import React from "react"
 import Axios from "axios"
 import Home from "./Home"
 
-
 class HomeContainer extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { quote: {} }
-  }
+  state = { quote: {} }
 
   componentDidMount() {
     const URL = "https://andruxnet-random-famous-quotes.p.mashape.com/?cat=famous"

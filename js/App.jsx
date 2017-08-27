@@ -11,18 +11,14 @@ import "../public/styles/style.scss";
 
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
+
+    state = {
       imageComics: [],
       imageIsChecked: false,
       marvelComics: [],
       darkHorseComics: []
     };
-    // this.showTrades = this.showTrades.bind(this);
-    this.getComics = this.getComics.bind(this);
-    // this.resetTrades = this.resetTrades.bind(this);
-  }
+  
 
   componentDidMount() {
     const date = new Date();
@@ -38,7 +34,7 @@ class App extends React.Component {
     this.getComics(darkHorseUrl, "darkHorseComics");
   }
 
-  getComics(url, publisher) {
+  getComics = (url, publisher) => {
     Axios(url)
       .then(res => res.data.data)
       .then(final => Object.values(final))

@@ -4,11 +4,7 @@ import { string } from "prop-types"
 import NewsSource from "./NewsSource"
 
 class NewsSourceContainer extends Component {
-  constructor(props) {
-    super(props)
-    this.toggleClass = this.toggleClass.bind(this)
-    this.state = { articles: [], active: false }
-  }
+  state = { articles: [], active: false }
 
   componentDidMount() {
     const APIkey = "&sortBy=top&apiKey=26ce81bcd5214311bb4c8d1bd8761e20"
@@ -18,7 +14,7 @@ class NewsSourceContainer extends Component {
       this.setState({ articles: trimmedArr })
     })
   }
-  toggleClass() {
+  toggleClass = () => {
     const currentState = this.state.active
     this.setState({ active: !currentState })
   }
