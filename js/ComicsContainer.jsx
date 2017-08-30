@@ -2,10 +2,14 @@ import React from "react";
 import { arrayOf, shape, bool, func } from "prop-types";
 import ImageComic from "./ImageComic";
 import MarvelComic from "./MarvelComic";
+import ComicCollection from "./ComicCollection"
 import DarkHorseComic from "./DarkHorseComic";
 import "../public/styles/style.scss";
 
 
+// https://comicvine.gamespot.com/api/issues/?api_key=e2e9a43f0fc0bd4f98006793a3e6f7389b65df7f&filter=name:Library%20Edition%20Vol.%206&format=json
+// https://comicvine.gamespot.com/api/volumes/?api_key=e2e9a43f0fc0bd4f98006793a3e6f7389b65df7f&filter=name:Hellboy:%20the%20chained%20coffin%20and%20the%20right%20hand%20of%20doom&format=json
+// https://comicvine.gamespot.com/api/search/?api_key=2736f1620710c52159ba0d0aea337c59bd273816&format=json&query=hellboy%20library%20edition&resources=volume
 class ComicsContainer extends React.Component {
 
   componentWillUnmount() {
@@ -37,6 +41,7 @@ class ComicsContainer extends React.Component {
 
     return (
       <div className="wrapper">
+        <ComicCollection/>
         <div className="publisher-heading">
           <h1 className="publisher-heading__title">IMAGE COMICS</h1>
         <span className={!this.props.imageIsChecked ? 'show-all__inactive' : 'show-all__active' } onClick={() => this.props.showTrades("imageIsChecked")} role="button" tabIndex="0">show all</span>

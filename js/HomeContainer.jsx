@@ -7,7 +7,7 @@ class HomeContainer extends React.Component {
 
   componentDidMount() {
     const URL = "https://andruxnet-random-famous-quotes.p.mashape.com/?cat=famous"
-    Axios.get(URL, {
+    Axios(URL, {
       headers: {
         "X-Mashape-Key": "VX2byySRsJmshOGnZtVwLVW1ymWwp143BhvjsnEhKJnBQDcrrb"
       }

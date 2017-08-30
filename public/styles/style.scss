@@ -172,7 +172,10 @@ font-size: .5em
       padding: 1em;
       margin-top: .5em;
       margin-bottom: .5em;
-      margin-right: 1%;
+      margin-right: 1%;     
+       &:hover {
+        box-shadow: 0 6px 6px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+      }
     }
     &__title {
       font-size: .8em;
