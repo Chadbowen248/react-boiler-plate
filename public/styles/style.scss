@@ -163,6 +163,35 @@ font-size: .5em
     margin-left: 2em;
   }
 
+  .comic-results-container {
+        display: flex;
+    flex-wrap: wrap;
+  }
+  .comic-results {
+    display: flex;
+    width: 45%;
+    margin: 1em 2%;
+    border: solid #ccc 1px;
+    border-radius: 5px;
+    height: 230px;
+    padding: 1em;
+  }
+
+  .hero-results {
+        display: flex;
+    flex-direction: column;
+    width: 30%;
+    overflow: hidden;
+  }
+
+  .comic-results__image {
+    width: 100%
+  }
+
+  .comic-results__desc {
+    width: 30%;
+  }
+
   .comic-container {
     display: flex;
     flex-wrap: wrap;
