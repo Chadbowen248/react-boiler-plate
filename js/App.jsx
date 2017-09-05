@@ -5,6 +5,7 @@ import Navigation from "./Navigation";
 import HomeContainer from "./HomeContainer";
 import NewsContainer from "./NewsContainer";
 import ComicsContainer from "./ComicsContainer";
+import ComicCollection from "./ComicCollection";
 import Coins from "./Coins";
 import "../public/styles/normalize.scss";
 import "../public/styles/style.scss";
@@ -91,6 +92,7 @@ class App extends React.Component {
               />}
           />
           <Match pattern="/coins" component={Coins} />
+          <Match pattern="/comicCollection" component={ComicCollection} />
         </div>
       </BrowserRouter>
     );

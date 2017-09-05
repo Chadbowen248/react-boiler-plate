@@ -1,7 +1,8 @@
 import React from "react"
+// import {Preload} from "react-preload"
 import { string, arrayOf, bool, shape, func } from "prop-types"
 import NewsCard from "./NewsCard"
-
+// TODO PRELOAD NEWSOURCE IMAGES
 const NewsSource = props =>
   <div className="news-container">
     <div className="news-container__title" onClick={props.toggleClass} role="button" tabIndex="0">

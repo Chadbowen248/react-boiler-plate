@@ -6,7 +6,7 @@
   outline: 1px solid orange;
 }
 
-*{
+* {
   box-sizing: border-box;
 }
 
@@ -23,19 +23,20 @@ button {
 }
 
 .wrapper {
-    padding-top: 70px;
-    height: 100vh;
-    &--home {
-      display: flex;
-    }
-    &--news {
-      padding-left:2em;
-      padding-right:2em;
-    }
-    &--coins {
-      background-color: goldenrod;
-      font-family: 'Fjalla One', sans-serif;
-    }
+  padding-top: 70px;
+  height: 100vh;
+  &--home {
+    display: flex;
+  }
+  &--news {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+  &--coins {
+    background-color: goldenrod;
+    font-family: 'Fjalla One', sans-serif;
+    padding-left: 2em;
+  }
 }
 // NAVIGATION
 
@@ -69,177 +70,222 @@ button {
 // LANDING PAGE
 
 .quote-container {
-height: 30vh;
-width: 100vw;
-color: #fff;
-font-family: 'Coda', sans-serif;
-font-size: 2vw;
-padding: 1em;
-display: flex;
-align-items: center;
-flex-direction: column;
-justify-content: center;
-/* background-color: rgba(0,0,0,.5); */
+  height: 30vh;
+  width: 100vw;
+  color: #fff;
+  font-family: 'Coda', sans-serif;
+  font-size: 2vw;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  /* background-color: rgba(0,0,0,.5); */
 }
 
 .byline {
-font-size: .5em
+  font-size: .5em;
 }
-
 
 // NEWS PAGE
 
-
 .news-container {
+  display: flex;
+  flex-direction: column;
+  &__title {
+    font-family: 'Heebo', sans-serif;
+    font-size: 2vw;
+    font-weight: 100;
+    padding-top: .75em;
+    padding-bottom: .75em;
+    border-top: #ccc solid 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  &--hide-news {
+    display: none;
+  }
+  &--show-news {
     display: flex;
-    flex-direction: column;
-    &__title {
-        font-family: 'Heebo', sans-serif;
-        font-size: 2vw;
-        font-weight: 100;
-        padding-top: .75em;
-        padding-bottom: .75em;
-        border-top: #ccc solid 1px;
-        text-transform: uppercase;
-        cursor: pointer;
-    }
-    &--hide-news {
-        display: none;
-    }
-    &--show-news {
-        display: flex;
-        padding-top: .75em;
-        padding-bottom: .75em;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
+    padding-top: .75em;
+    padding-bottom: .75em;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
 }
 
 .news-card {
-    &__title{
-      font-family: 'Fjalla One', sans-serif;
-      line-height: 1.5em;
-      color: #333;
-      font-size: .8em;
-    }
-    &__image {
-      height: 200px;
-    }
-    &__button {
-      width: 22vw;
-      margin-top: .5em;
-      margin-bottom: .5em;
-      max-width: 450px;
-      padding: 1em;
-      height: 300px;
-      background-color: #fff;
-      border: solid #ccc 1px;
-      cursor: pointer;
-      &:hover {
-        box-shadow: 0 6px 6px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
-      }
+  &__title {
+    font-family: 'Fjalla One', sans-serif;
+    line-height: 1.5em;
+    color: #333;
+    font-size: .8em;
+  }
+  &__image {
+    height: 200px;
+  }
+  &__button {
+    width: 22vw;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    max-width: 450px;
+    padding: 1em;
+    height: 300px;
+    background-color: #fff;
+    border: solid #ccc 1px;
+    cursor: pointer;
+    &:hover {
+      box-shadow: 0 6px 6px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
     }
   }
+}
 
 // COMICS
-  .publisher-heading {
-    height: 76px;
-    background-color: tomato;
-    &__title {
+.publisher-heading {
+  height: 76px;
+  margin-top: 2em;
+  background-color: tomato;
+  &__title {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    font-size: 65px;
+    transform: scale(1, 1.7);
+    color: #fff;
+    margin-left: .5em;
+    font-family: 'Coda';
+    &--not-trans {
+      transform: none;
       margin: 0;
       padding: 0;
       display: inline-block;
-      font-size: 65px;
-      transform: scale(1, 1.7);
+      font-size: 50;
       color: #fff;
       margin-left: .5em;
       font-family: 'Coda';
     }
   }
-  
-  .comicSearch {
-    margin-top: 2em;
-    margin-bottom: 2em;
-    margin-left: 2em;
-  }
+}
+.comic-collection__nav-link {
+  font-family: 'Coda';
+  text-decoration: none;
+  padding-left: 2em;
+  color: tomato;
+}
+.comicSearch {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  margin-left: 2em;
+  margin-right: 2em;
+  height: 1.6em;
+  border-radius: 5px;
+  border: 1px;
 
-  .comic-results-container {
-        display: flex;
-    flex-wrap: wrap;
-  }
-  .comic-results {
-    display: flex;
-    width: 45%;
-    margin: 1em 2%;
-    border: solid #ccc 1px;
-    border-radius: 5px;
-    height: 230px;
+}
+
+.comic-search__submit {
+  height: 2em;
+  width: 9em;
+  margin-left: 1em;
+  margin-right: 1em;
+  background-color: tomato;
+  font-family: 'heebo';
+  color: white;
+  font-size: .9em;
+  border: 2px solid white;
+}
+
+.comic-search__clear {
+  height: 2em;
+  width: 9em;
+  color: white; 
+  font-size: .9em;
+  border: 2px solid white;
+    margin-left: 1em;
+  margin-right: 1em;
+  background-color: tomato;
+  font-family: 'heebo';
+
+}
+
+
+.comic-results-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2em;
+}
+.comic-results {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  // margin: 1em 2%;
+  border: solid #ccc 1px;
+  border-radius: 5px;
+  height: 530px;
+  padding: 1em;
+}
+
+.comic-results__image {
+  width: 100%;
+}
+
+.comic-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  justify-content: flex-start;
+  &__comic {
+    width: 23%;
+    height: 530px;
+    min-height: 530px;
+    margin-left: 1%;
+    border: 1px solid #ccc;
     padding: 1em;
-  }
-
-  .hero-results {
-        display: flex;
-    flex-direction: column;
-    width: 30%;
-    overflow: hidden;
-  }
-
-  .comic-results__image {
-    width: 100%
-  }
-
-  .comic-results__desc {
-    width: 30%;
-  }
-
-  .comic-container {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
-    justify-content: flex-start;
-    &__comic {
-      width: 23%;
-      height: 530px;
-      min-height: 530px;
-      margin-left: 1%;
-      border: 1px solid #ccc;
-      padding: 1em;
-      margin-top: .5em;
-      margin-bottom: .5em;
-      margin-right: 1%;     
-       &:hover {
-        box-shadow: 0 6px 6px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
-      }
-    }
-    &__title {
-      font-size: .8em;
-      font-family: 'Fjalla One', sans-serif;
-      color: #333;
-    }
-    &__date {
-      font-size: .8em;
-      font-family: 'Fjalla One', sans-serif;
-      color: #333;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    margin-right: 1%;
+    &:hover {
+      box-shadow: 0 6px 6px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
     }
   }
-  
-  .show-all__inactive {
-    color: #fff;
-    margin-left: 1em;
-    font-family: 'Coda';
+  &__title {
     font-size: .8em;
-    cursor: pointer;
-    text-transform: uppercase;
-  }
-  
-  .show-all__active {
+    font-family: 'Fjalla One', sans-serif;
     color: #333;
-    margin-left: 1em;
-    font-family: 'Coda';
-    font-size: .8em;
-    cursor: pointer;
-    text-transform: uppercase;
   }
-  
+  &__date {
+    font-size: .8em;
+    font-family: 'Fjalla One', sans-serif;
+    color: #333;
+  }
+}
+
+.show-all__inactive {
+  color: #fff;
+  margin-left: 1em;
+  font-family: 'Coda';
+  font-size: .8em;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.show-all__active {
+  color: #333;
+  margin-left: 1em;
+  font-family: 'Coda';
+  font-size: .8em;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.input-container {
+  display: inline;
+}
+
+.test {
+      display: flex;
+    align-items: center;
+    width: 80%;
+}
