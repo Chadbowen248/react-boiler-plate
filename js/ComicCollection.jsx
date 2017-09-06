@@ -1,5 +1,6 @@
 import React from "react"
 import Axios from "axios"
+import base from'./base'
 import ComicCollectionResult from "./ComicCollectionResult"
 
 class ComicCollection extends React.Component {
@@ -7,6 +8,18 @@ class ComicCollection extends React.Component {
     results: [],
     collection: []
   }
+
+  // componentWillMount() {
+  //   this.ref = base.syncState(`comic-${comic.id}`,{
+  //     context: this,
+  //     state: 'collection'
+  //   })
+  // }
+
+  componentWillUnmount() {
+    base.removeBinding(this.ref)
+  }
+
   searchForComic = () => {
     const searchTerm = this.textInput.value
     const apiKey = "2736f1620710c52159ba0d0aea337c59bd273816"
@@ -17,17 +30,16 @@ class ComicCollection extends React.Component {
   }
   addComic = comic => {
     const collection = { ...this.state.collection }
-    const addedComic = {
-      name: comic.name,
-      image: comic.image.medium_url,
-      id: comic.id
-    }
     collection[`comic-${comic.id}`] = comic
     this.setState({ collection })
+    this.ref = base.syncState(`/`,{
+      context: this,
+      state: 'collection'
+    })
 
     // this.setState({ collection: { [comic.id]: addedComic } })
     // this.setState({[`comic${comic.id}]:addedComic})
-    localStorage.setItem(`comic${comic.id}`, JSON.stringify(addedComic))
+    // localStorage.setItem(`comic-${comic.id}`, JSON.stringify(comic))
   }
   render() {
     return (
