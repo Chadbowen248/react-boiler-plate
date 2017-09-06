@@ -9,12 +9,12 @@ class ComicCollection extends React.Component {
     collection: []
   }
 
-  // componentWillMount() {
-  //   this.ref = base.syncState(`comic-${comic.id}`,{
-  //     context: this,
-  //     state: 'collection'
-  //   })
-  // }
+  componentWillMount() {
+    this.ref = base.syncState(`/`,{
+      context: this,
+      state: 'collection'
+    })
+  }
 
   componentWillUnmount() {
     base.removeBinding(this.ref)
@@ -32,10 +32,10 @@ class ComicCollection extends React.Component {
     const collection = { ...this.state.collection }
     collection[`comic-${comic.id}`] = comic
     this.setState({ collection })
-    this.ref = base.syncState(`/`,{
-      context: this,
-      state: 'collection'
-    })
+    // this.ref = base.syncState(`/`,{
+    //   context: this,
+    //   state: 'collection'
+    // })
 
     // this.setState({ collection: { [comic.id]: addedComic } })
     // this.setState({[`comic${comic.id}]:addedComic})
