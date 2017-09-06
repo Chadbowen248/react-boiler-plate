@@ -72,6 +72,11 @@ class ComicCollection extends React.Component {
             <ComicCollectionResult key={comic.id} details={comic} addComic={this.addComic} />
           )}
         </div>
+        <div>_________________________________________________</div>
+        {/* {this.state.collection.map(index => {console.log(index)})} */}
+        {Object.entries(this.state.collection).map(index => <div>
+          {index[1].name}
+          </div>)}
       </div>
     )
   }
