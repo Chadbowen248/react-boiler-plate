@@ -1,18 +1,21 @@
 import React from "react"
 import Axios from "axios"
-import base from'./base'
+import base from "./base"
 import ComicCollectionResult from "./ComicCollectionResult"
+import ComicCollectionResultTemp from "./ComicCollectionResultTemp"
+import ComicCollectionComic from "./ComicCollectionComic"
 
 class ComicCollection extends React.Component {
   state = {
     results: [],
-    collection: []
+    collection: [],
+    temp: []
   }
 
   componentWillMount() {
-    this.ref = base.syncState(`/`,{
+    this.ref = base.syncState(`/`, {
       context: this,
-      state: 'collection'
+      state: "collection"
     })
   }
 
@@ -24,21 +27,34 @@ class ComicCollection extends React.Component {
     const searchTerm = this.textInput.value
     const apiKey = "2736f1620710c52159ba0d0aea337c59bd273816"
     const URL = `https://comicvine.gamespot.com/api/search/?api_key=${apiKey}&format=json&query=${searchTerm}&resources=volume`
+
     // const URL = `https://comicvine.gamespot.com/api/volumes/?api_key=${apiKey}&format=json&filter=name:${searchTerm}`
-    Axios.get(URL, { crossdomain: true }).then(res => res.data.results).then(results => this.setState({ results }))
+    Axios.get(URL).then(res => res.data.results).then(results => this.setState({ results }))
     this.textInput.value = ""
   }
+
+  deeperSearch = url => {
+    const apiKey = "2736f1620710c52159ba0d0aea337c59bd273816"
+
+    Axios(url)
+      .then(res => res.data.results.issues)
+      .then(res =>
+        res.map(index =>
+          Axios(`${index.api_detail_url}?api_key=${apiKey}&format=json`).then(index => {
+            const temp = {...this.state.temp}
+            temp[`comic-${index.data.results.id}`] = index.data.results
+            // this.setState({ [`temp${Date.now()}`]: temp.data.results })
+            this.setState({temp})
+          }
+          )
+        )
+      )
+  }
+
   addComic = comic => {
     const collection = { ...this.state.collection }
     collection[`comic-${comic.id}`] = comic
     this.setState({ collection })
-    // this.ref = base.syncState(`/`,{
-    //   context: this,
-    //   state: 'collection'
-    // })
-
-    // this.setState({ collection: { [comic.id]: addedComic } })
-    // this.setState({[`comic${comic.id}]:addedComic})
     // localStorage.setItem(`comic-${comic.id}`, JSON.stringify(comic))
   }
   render() {
@@ -69,14 +85,25 @@ class ComicCollection extends React.Component {
         </div>
         <div className="comic-results-container">
           {this.state.results.map(comic =>
-            <ComicCollectionResult key={comic.id} details={comic} addComic={this.addComic} />
+            <ComicCollectionResult
+              key={comic.id}
+              details={comic}
+              addComic={this.addComic}
+              isOnlyIssue={comic.count_of_issues}
+              deeperSearch={this.deeperSearch}
+            />
           )}
         </div>
-        <div>_________________________________________________</div>
-        {/* {this.state.collection.map(index => {console.log(index)})} */}
-        {Object.entries(this.state.collection).map(index => <div>
-          {index[1].name}
-          </div>)}
+        <div>_______________search results__________________________________</div>
+        {Object.entries(this.state.temp).map(comic =>
+            <ComicCollectionResultTemp details={comic[1]} addComic={this.addComic}/>
+          )}
+        <div>_______________collection__________________________________</div>
+            <div className='comic-container'>
+        {Object.entries(this.state.collection).map(comic =>
+          <ComicCollectionComic details={comic[1]}/>
+        )}
+          </div>
       </div>
     )
   }

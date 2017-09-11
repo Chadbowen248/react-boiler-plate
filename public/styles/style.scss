@@ -180,7 +180,6 @@ button {
   height: 1.6em;
   border-radius: 5px;
   border: 1px;
-
 }
 
 .comic-search__submit {
@@ -198,16 +197,50 @@ button {
 .comic-search__clear {
   height: 2em;
   width: 9em;
-  color: white; 
+  color: white;
   font-size: .9em;
   border: 2px solid white;
-    margin-left: 1em;
+  margin-left: 1em;
   margin-right: 1em;
   background-color: tomato;
   font-family: 'heebo';
-
 }
 
+.comic-results-add-button__disabled {
+  margin-top: .5em;
+  background-color: #fff;
+  height: 40px;
+  width: 100%;
+  border: 3px solid rgba(192,192,192,0.3);
+  color: rgba(192,192,192,0.3);
+  display: flex;
+  font-size: 1em;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-family: 'coda';
+  text-transform: uppercase;
+}
+.comic-results-add-button {
+  margin-top: .5em;
+  height: 40px;
+  width: 100%;
+  border: 3px solid transparent;
+  border-image: linear-gradient(to bottom right, #ff6347 0%, #991700 100%);
+  border-image-slice: 1;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1em;
+  text-align: center;
+  font-family: 'coda';
+  text-transform: uppercase;
+  background: -webkit-linear-gradient(#ff6347, #991700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 .comic-results-container {
   display: flex;
@@ -228,7 +261,6 @@ button {
 .comic-results__image {
   width: 100%;
 }
-
 .comic-container {
   display: flex;
   flex-wrap: wrap;
@@ -238,7 +270,7 @@ button {
   justify-content: flex-start;
   &__comic {
     width: 23%;
-    height: 530px;
+    height: 570px;
     min-height: 530px;
     margin-left: 1%;
     border: 1px solid #ccc;
@@ -246,6 +278,7 @@ button {
     margin-top: .5em;
     margin-bottom: .5em;
     margin-right: 1%;
+ 
     &:hover {
       box-shadow: 0 6px 6px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
     }
@@ -285,7 +318,7 @@ button {
 }
 
 .test {
-      display: flex;
-    align-items: center;
-    width: 80%;
+  display: flex;
+  align-items: center;
+  width: 80%;
 }
