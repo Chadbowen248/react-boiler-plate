@@ -6,7 +6,7 @@ const ComicCollectionResultTemp = props =>
    
     <img className="comic-results__image" src={props.details.image.medium_url} alt="" />
 
-    <button  className={props.isOnlyIssue === 1 ? 'comic-results-add-button' : 'comic-results-add-button__disabled'} onClick={() => props.addComic(props.details)}>Add Comic</button>
+    <button  className='comic-results-add-button' onClick={() => props.addComic(props.details)}>Add Comic</button>
 
     <a href={props.details.site_detail_url}>{props.details.count_of_issues}</a>
   </div>

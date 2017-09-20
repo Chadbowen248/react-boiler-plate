@@ -53,11 +53,13 @@ class ComicCollection extends React.Component {
 
   addComic = comic => {
     const collection = { ...this.state.collection }
+    comic.volume ? comic.finalName = comic.volume.name + ' ' +comic.name : comic.finalName = comic.name
     collection[`comic-${comic.id}`] = comic
     this.setState({ collection })
     // localStorage.setItem(`comic-${comic.id}`, JSON.stringify(comic))
   }
   render() {
+    // const test = 
     return (
       <div className="wrapper">
         <div className="publisher-heading">
@@ -95,9 +97,11 @@ class ComicCollection extends React.Component {
           )}
         </div>
         <div>_______________search results__________________________________</div>
+        <div className="comic-results-container">
         {Object.entries(this.state.temp).map(comic =>
             <ComicCollectionResultTemp details={comic[1]} addComic={this.addComic}/>
           )}
+          </div>
         <div>_______________collection__________________________________</div>
             <div className='comic-container'>
         {Object.entries(this.state.collection).map(comic =>
