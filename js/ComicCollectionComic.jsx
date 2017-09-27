@@ -7,6 +7,7 @@ const ComicCollectionComic = props =>
     <p className='comic-container__title'>
       {props.details.finalName}
     </p>
+    <p onClick={() => props.removeComic(`comic-${props.details.id}`)}>X</p>
   </div>
 
 export default ComicCollectionComic

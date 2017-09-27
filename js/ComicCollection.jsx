@@ -19,9 +19,24 @@ class ComicCollection extends React.Component {
       state: "collection"
     });
   }
+ 
+  // componentWillUpdate() {
+  //   this.ref = base.syncState(`/`, {
+  //     context: this,
+  //     state: "collection"
+  //   });
+  // }
+
+  // componentDidUpdate() {
+  //   this.test1 = base.syncState(`/`, {
+  //     context: this,
+  //     state: "collection"
+  //   });
+  // }
 
   componentWillUnmount() {
     base.removeBinding(this.ref);
+    // base.removeBinding(this.test1);
   }
 
   searchForComic = () => {
@@ -63,6 +78,22 @@ class ComicCollection extends React.Component {
     this.setState({ collection });
     // localStorage.setItem(`comic-${comic.id}`, JSON.stringify(comic))
   };
+   // removeFromData(key) {
+  //   this.state.data[key] = null;
+  //   this.setState({data: this.state.data});
+  //   }
+  removeComic = comic => {
+    // const collection = { ...this.state.collection };
+    console.log(comic)
+    console.log(Object.keys(this.state.collection).length)
+    this.state.collection[comic] = null
+    // delete this.state.collection[comic]
+    console.log(Object.keys(this.state.collection).length)
+
+    this.setState({ collection: this.state.collection });
+    // console.log(Object.keys(this.state.collection).length)
+  
+  }
   render() {
     return (
       <div className="wrapper">
@@ -138,7 +169,7 @@ class ComicCollection extends React.Component {
                   .indexOf(this.state.searchTerm.toUpperCase()) >= 0
             )
             .map(comic =>
-              <ComicCollectionComic details={comic[1]} key={comic[1].id} />
+              <ComicCollectionComic details={comic[1]} key={comic[1].id} removeComic={this.removeComic}/>
             )}
         </div>
       </div>
