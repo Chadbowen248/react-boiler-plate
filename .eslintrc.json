@@ -7,5 +7,9 @@
   "plugins": [
     "prettier"
   ],
-  "parser": "babel-eslint"
+  "parser": "babel-eslint",
+  "rules": {
+    "no-param-reassign": [2, { "props": false }],
+    "no-unused-expressions": ["error", {"allowTernary": true}]
+  }
 }

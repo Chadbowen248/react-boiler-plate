@@ -9,7 +9,8 @@ class ComicCollection extends React.Component {
   state = {
     results: [],
     collection: [],
-    temp: []
+    temp: [],
+    searchTerm: ''
   }
 
   componentWillMount() {
@@ -28,38 +29,35 @@ class ComicCollection extends React.Component {
     const apiKey = "2736f1620710c52159ba0d0aea337c59bd273816"
     const URL = `https://comicvine.gamespot.com/api/search/?api_key=${apiKey}&format=json&query=${searchTerm}&resources=volume`
 
-    // const URL = `https://comicvine.gamespot.com/api/volumes/?api_key=${apiKey}&format=json&filter=name:${searchTerm}`
     Axios.get(URL).then(res => res.data.results).then(results => this.setState({ results }))
     this.textInput.value = ""
   }
-
+  handleSearchTermChange = (event) => {
+    this.setState({searchTerm: event.target.value})
+  }
   deeperSearch = url => {
     const apiKey = "2736f1620710c52159ba0d0aea337c59bd273816"
 
-    Axios(url)
-      .then(res => res.data.results.issues)
-      .then(res =>
-        res.map(index =>
-          Axios(`${index.api_detail_url}?api_key=${apiKey}&format=json`).then(index => {
-            const temp = {...this.state.temp}
-            temp[`comic-${index.data.results.id}`] = index.data.results
-            // this.setState({ [`temp${Date.now()}`]: temp.data.results })
-            this.setState({temp})
-          }
-          )
-        )
+    Axios(url).then(res => res.data.results.issues).then(res =>
+      res.map(index =>
+        Axios(`${index.api_detail_url}?api_key=${apiKey}&format=json`).then(comic => {
+          const temp = { ...this.state.temp }
+          temp[`comic-${comic.data.results.id}`] = comic.data.results
+          // this.setState({ [`temp${Date.now()}`]: temp.data.results })
+          this.setState({ temp })
+        })
       )
+    )
   }
 
   addComic = comic => {
     const collection = { ...this.state.collection }
-    comic.volume ? comic.finalName = comic.volume.name + ' ' +comic.name : comic.finalName = comic.name
+    comic.volume ? (comic.finalName = `${comic.volume.name} ${comic.name}`) : (comic.finalName = comic.name)
     collection[`comic-${comic.id}`] = comic
     this.setState({ collection })
     // localStorage.setItem(`comic-${comic.id}`, JSON.stringify(comic))
   }
   render() {
-    // const test = 
     return (
       <div className="wrapper">
         <div className="publisher-heading">
@@ -98,34 +96,22 @@ class ComicCollection extends React.Component {
         </div>
         <div>_______________search results__________________________________</div>
         <div className="comic-results-container">
-        {Object.entries(this.state.temp).map(comic =>
-            <ComicCollectionResultTemp details={comic[1]} addComic={this.addComic}/>
+          {Object.entries(this.state.temp).map(comic =>
+            <ComicCollectionResultTemp details={comic[1]} addComic={this.addComic} />
           )}
-          </div>
+        </div>
         <div>_______________collection__________________________________</div>
-            <div className='comic-container'>
-        {Object.entries(this.state.collection).map(comic =>
-          <ComicCollectionComic details={comic[1]}/>
-        )}
-          </div>
+        <input type="text" value={this.state.searchTerm} onChange={this.handleSearchTermChange}/>
+        <h1>{this.state.searchTerm}</h1>
+        <div className="comic-container">
+          {Object.entries(this.state.collection)
+       
+         .filter(comic => comic[1].finalName.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0)
+          .map(comic => <ComicCollectionComic details={comic[1]} />)}
+        </div>
       </div>
     )
   }
 }
 
 export default ComicCollection
-
-// https://comicvine.gamespot.com/api/search/?api_key=2736f1620710c52159ba0d0aea337c59bd273816&format=json&query=hellboy%20library%20edition&resources=volume
-// https://comicvine.gamespot.com/api/volumes/?api_key=e2e9a43f0fc0bd4f98006793a3e6f7389b65df7f&filter=name:Hellboy:%20the%20chained%20coffin%20and%20the%20right%20hand%20of%20doom&format=json
-
-/* <div className="comic-results" key={comic.id}>
-              <div className="hero-results">
-                <img className="comic-results__image" src={comic.image.medium_url} alt="" />
-              </div>
-              <button onClick={ () =>this.addComic(comic.name)}>add me</button>
-              <div className="comic-results__desc">
-                <a href={`${comic.api_detail_url}&format=json&api_key=2736f1620710c52159ba0d0aea337c59bd273816`}>
-                  {comic.name}
-                </a>
-              </div>
-            </div> */
