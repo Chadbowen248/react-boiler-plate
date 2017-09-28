@@ -13,6 +13,7 @@ const ComicCollectionResult = props =>
       
     </button>
     <a href={props.details.site_detail_url}><img className="cvlogo" src="public/img/cvlogo.png" alt=""/></a>
+    <p>Issues in volume: {props.details.count_of_issues}</p>
   </div>
 
 export default ComicCollectionResult

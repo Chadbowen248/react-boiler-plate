@@ -4,7 +4,7 @@ import { shape, func } from "prop-types"
 const ComicCollectionResultTemp = props =>
   <div className="comic-container__comic">
     <img className="comic-results__image" src={props.details.image.medium_url} alt="" />
-    <p>{props.details.name}</p>
+    <p>{props.details.name} {props.details.issue_number}</p>
     <button className="comic-results-add-button" onClick={() => props.addComic(props.details)}>
       Add Comic
     </button>
