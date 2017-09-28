@@ -262,10 +262,14 @@ button {
   height: 530px;
   padding: 1em;
 }
-
+.comic-delete {
+  width: 20px;
+}
 .comic-results__image {
-  width: 100%;
-  height: 400px;
+  height: 65%;
+}
+.comic-collection__image {
+  height: 85%;
 }
 .comic-container {
   display: flex;
@@ -290,7 +294,7 @@ button {
     }
   }
   &__title {
-    font-size: .8em;
+    font-size: 1vw;
     font-family: 'Fjalla One', sans-serif;
     color: #333;
   }
