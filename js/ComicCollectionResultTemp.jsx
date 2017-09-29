@@ -15,6 +15,6 @@ const ComicCollectionResultTemp = props =>
 export default ComicCollectionResultTemp
 
 ComicCollectionResultTemp.propTypes = {
-  details: shape.isRequired,
+  details: shape({}).isRequired,
   addComic: func.isRequired
 }

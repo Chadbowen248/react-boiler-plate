@@ -143,7 +143,12 @@ button {
 // COMICS
 .cvlogo {
   width: 4em;
-  margin-top: 40px;
+}
+
+.comic-vine-info{
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .publisher-heading {
@@ -164,7 +169,7 @@ button {
       margin: 0;
       padding: 0;
       display: inline-block;
-      font-size: 50;
+      font-size: 2vw;
       color: #fff;
       margin-left: .5em;
       font-family: 'Coda';
@@ -262,9 +267,13 @@ button {
   height: 530px;
   padding: 1em;
 }
-.comic-delete {
-  width: 20px;
+.comic-delete-button{
+  background-color: transparent;
+  width: 15%;
 }
+// .comic-delete-image {
+//   width: 10px;
+// }
 .comic-results__image {
   height: 65%;
 }
@@ -330,5 +339,5 @@ button {
 .test {
   display: flex;
   align-items: center;
-  width: 80%;
+  width: 100%;
 }
