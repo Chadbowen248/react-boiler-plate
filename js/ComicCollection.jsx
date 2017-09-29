@@ -40,7 +40,7 @@ class ComicCollection extends React.Component {
   };
   deeperSearch = url => {
     const apiKey = "2736f1620710c52159ba0d0aea337c59bd273816";
-
+    this.setState({loaded: true})
     Axios(url).then(res => res.data.results.issues).then(res =>
       res.map(index =>
         Axios(
@@ -48,8 +48,7 @@ class ComicCollection extends React.Component {
         ).then(comic => {
           const temp = { ...this.state.temp };
           temp[`comic-${comic.data.results.id}`] = comic.data.results;
-          this.setState({ temp });
-          this.setState({ flag: true });
+          this.setState({ temp, flag: true , loaded: false});
         })
       )
     );
@@ -118,7 +117,8 @@ class ComicCollection extends React.Component {
             </div>
           </div>
         </div>
-        <div className="comic-results-container">
+        {/* <div className={this.state.loaded ? 'comic-results-container-hidden' : 'comic-results-container-show'}> */}
+        <div className='comic-results-container-show'>
           {!this.state.flag ? firstSearch : deeperSearch}
           <img className={!this.state.loaded ? 'hide-spinner' : 'show-spinner'} src="/public/img/Spinner.svg" alt=""/>
         </div>

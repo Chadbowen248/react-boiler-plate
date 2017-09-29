@@ -264,12 +264,22 @@ button {
   -webkit-text-fill-color: transparent;
 }
 
-.comic-results-container {
+.comic-results-container-show {
   display: flex;
   flex-wrap: wrap;
   min-height: 150px;
   margin-bottom: 2em;
+  opacity: 1;
+  // transition: opacity 1.25s ease-in-out;
+  // -moz-transition: opacity 1.25s ease-in-out;
+  // -webkit-transition: opacity 1.25s ease-in-out;
+
 }
+
+.comic-results-container-hide {
+  opacity: 0;
+}
+
 .comic-results {
   display: flex;
   flex-direction: column;
