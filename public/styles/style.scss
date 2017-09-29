@@ -145,6 +145,18 @@ button {
   width: 4em;
 }
 
+.hide-spinner {
+  display: none;
+}
+
+.show-spinner {
+  display: block;
+  width: 15%;
+  position: absolute;
+  left: 42%;
+  top: 190px;
+}
+
 .comic-vine-info{
   display: flex;
   align-items: center;
@@ -255,6 +267,7 @@ button {
 .comic-results-container {
   display: flex;
   flex-wrap: wrap;
+  min-height: 150px;
   margin-bottom: 2em;
 }
 .comic-results {
