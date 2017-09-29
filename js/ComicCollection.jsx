@@ -109,9 +109,7 @@ class ComicCollection extends React.Component {
               <button
                 className="comic-search__clear"
                 onClick={() => {
-                  this.setState({ results: [] });
-                  this.setState({temp: []})
-                  this.setState({flag: false})
+                  this.setState({ results: [], temp: [], flag: false});
                 }}
               >
                 clear
