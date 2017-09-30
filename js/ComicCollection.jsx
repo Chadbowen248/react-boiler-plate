@@ -12,7 +12,8 @@ class ComicCollection extends React.Component {
     temp: [],
     searchTerm: "",
     loaded: false,
-    flag: false
+    flag: false,
+    fade: false
   };
 
   componentWillMount() {
@@ -30,10 +31,10 @@ class ComicCollection extends React.Component {
     const searchTerm = this.textInput.value;
     const apiKey = "2736f1620710c52159ba0d0aea337c59bd273816";
     const URL = `https://comicvine.gamespot.com/api/search/?api_key=${apiKey}&format=json&query=${searchTerm}&resources=volume`;
-    this.setState({loaded: true})
+    this.setState({loaded: true, fade: false})
     Axios.get(URL)
       .then(res => res.data.results)
-      .then(results => this.setState({  results, loaded: false  }))
+      .then(results => this.setState({  results, loaded: false , fade: true }))
   };
   handleSearchTermChange = event => {
     this.setState({ searchTerm: event.target.value });
@@ -108,7 +109,7 @@ class ComicCollection extends React.Component {
               <button
                 className="comic-search__clear"
                 onClick={() => {
-                  this.setState({ results: [], temp: [], flag: false })
+                  this.setState({ results: [], temp: [], flag: false , fade: false})
                   this.textInput.value = ''
                 }}
               >
@@ -117,8 +118,8 @@ class ComicCollection extends React.Component {
             </div>
           </div>
         </div>
-        {/* <div className={this.state.loaded ? 'comic-results-container-hidden' : 'comic-results-container-show'}> */}
-        <div className='comic-results-container-show'>
+        <div className={!this.state.fade ? 'comic-results-container-hide' : 'comic-results-container-show'}>
+        {/* <div className='comic-results-container-show'> */}
           {!this.state.flag ? firstSearch : deeperSearch}
           <img className={!this.state.loaded ? 'hide-spinner' : 'show-spinner'} src="/public/img/Spinner.svg" alt=""/>
         </div>
