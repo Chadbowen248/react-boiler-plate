@@ -31,14 +31,14 @@ class ComicCollection extends React.Component {
   haveImagesLoaded = arr => {
     if (arr === "temp") {
       if (this.state.images + 1 === Object.keys(this.state[arr]).length) {
-        this.setState({ fade: true , loaded: false})
+        this.setState({ fade: true, loaded: false })
       }
     }
     const count = this.state.images
     this.setState({ images: count + 1 })
 
     if (this.state.images === this.state[arr].length - 1) {
-      this.setState({ fade: true , loaded: false})
+      this.setState({ fade: true, loaded: false })
     }
   }
 
@@ -60,7 +60,8 @@ class ComicCollection extends React.Component {
         Axios(`${index.api_detail_url}?api_key=${apiKey}&format=json`).then(comic => {
           const temp = { ...this.state.temp }
           temp[`comic-${comic.data.results.id}`] = comic.data.results
-          this.setState({ temp, flag: true ,fade: false})
+          this.setState({ temp, flag: true, fade: false })
+          window.scrollTo(0, 0)
         })
       )
     )
@@ -104,6 +105,10 @@ class ComicCollection extends React.Component {
             <h1 className="publisher-heading__title--not-trans">ADD TO COLLECTION</h1>
             <input
               className="comicSearch"
+              onFocus={() => {
+                this.setState({ results: [], temp: [], flag: false, fade: false, images: 0 })
+                this.textInput.value = ""
+              }}
               type="text"
               ref={input => {
                 this.textInput = input
@@ -126,7 +131,7 @@ class ComicCollection extends React.Component {
         <div className={!this.state.fade ? "comic-results-container-hide" : "comic-results-container-show"}>
           {!this.state.flag ? firstSearch : deeperSearch}
         </div>
-          <img className={!this.state.loaded ? "hide-spinner" : "show-spinner"} src="/public/img/Spinner.svg" alt="" />
+        <img className={!this.state.loaded ? "hide-spinner" : "show-spinner"} src="/public/img/Spinner.svg" alt="" />
 
         <div className="publisher-heading">
           <div className="test">
