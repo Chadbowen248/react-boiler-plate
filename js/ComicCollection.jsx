@@ -28,12 +28,17 @@ class ComicCollection extends React.Component {
     base.removeBinding(this.ref)
   }
 
-  haveImagesLoaded = () => {
+  haveImagesLoaded = arr => {
+    if (arr === "temp") {
+      if (this.state.images + 1 === Object.keys(this.state[arr]).length) {
+        this.setState({ fade: true })
+      }
+    }
     const count = this.state.images
     this.setState({ images: count + 1 })
-    if((this.state.images) === (this.state.results.length-1)) {
-      console.log('images loaded')
-      this.setState({fade: true})
+    if (this.state.images === this.state[arr].length - 1) {
+      console.log("images loaded")
+      this.setState({ fade: true })
     }
   }
 
@@ -49,13 +54,13 @@ class ComicCollection extends React.Component {
   }
   deeperSearch = url => {
     const apiKey = "2736f1620710c52159ba0d0aea337c59bd273816"
-    this.setState({ loaded: true, images: 0})
+    this.setState({ loaded: true, images: 0 })
     Axios(url).then(res => res.data.results.issues).then(res =>
       res.map(index =>
         Axios(`${index.api_detail_url}?api_key=${apiKey}&format=json`).then(comic => {
           const temp = { ...this.state.temp }
           temp[`comic-${comic.data.results.id}`] = comic.data.results
-          this.setState({ temp, flag: true, loaded: false })
+          this.setState({ temp, flag: true, loaded: false ,fade: false})
         })
       )
     )
@@ -85,7 +90,12 @@ class ComicCollection extends React.Component {
       />
     )
     const deeperSearch = Object.entries(this.state.temp).map(comic =>
-      <ComicCollectionResultTemp details={comic[1]} addComic={this.addComic} key={comic[1].id} haveImagesLoaded={this.haveImagesLoaded}/>
+      <ComicCollectionResultTemp
+        details={comic[1]}
+        addComic={this.addComic}
+        key={comic[1].id}
+        haveImagesLoaded={this.haveImagesLoaded}
+      />
     )
     return (
       <div className="wrapper">
@@ -104,7 +114,7 @@ class ComicCollection extends React.Component {
               <button
                 className="comic-search__clear"
                 onClick={() => {
-                  this.setState({ results: [], temp: [], flag: false, fade: false, images: 0})
+                  this.setState({ results: [], temp: [], flag: false, fade: false, images: 0 })
                   this.textInput.value = ""
                 }}
               >
@@ -114,7 +124,6 @@ class ComicCollection extends React.Component {
           </div>
         </div>
         <div className={!this.state.fade ? "comic-results-container-hide" : "comic-results-container-show"}>
-          {/* <div className='comic-results-container-show'> */}
           {!this.state.flag ? firstSearch : deeperSearch}
           <img className={!this.state.loaded ? "hide-spinner" : "show-spinner"} src="/public/img/Spinner.svg" alt="" />
         </div>
