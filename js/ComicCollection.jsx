@@ -31,14 +31,14 @@ class ComicCollection extends React.Component {
   haveImagesLoaded = arr => {
     if (arr === "temp") {
       if (this.state.images + 1 === Object.keys(this.state[arr]).length) {
-        this.setState({ fade: true })
+        this.setState({ fade: true , loaded: false})
       }
     }
     const count = this.state.images
     this.setState({ images: count + 1 })
+
     if (this.state.images === this.state[arr].length - 1) {
-      console.log("images loaded")
-      this.setState({ fade: true })
+      this.setState({ fade: true , loaded: false})
     }
   }
 
@@ -47,7 +47,7 @@ class ComicCollection extends React.Component {
     const apiKey = "2736f1620710c52159ba0d0aea337c59bd273816"
     const URL = `https://comicvine.gamespot.com/api/search/?api_key=${apiKey}&format=json&query=${searchTerm}&resources=volume`
     this.setState({ loaded: true, fade: false })
-    Axios.get(URL).then(res => res.data.results).then(results => this.setState({ results, loaded: false }))
+    Axios.get(URL).then(res => res.data.results).then(results => this.setState({ results }))
   }
   handleSearchTermChange = event => {
     this.setState({ searchTerm: event.target.value })
@@ -60,7 +60,7 @@ class ComicCollection extends React.Component {
         Axios(`${index.api_detail_url}?api_key=${apiKey}&format=json`).then(comic => {
           const temp = { ...this.state.temp }
           temp[`comic-${comic.data.results.id}`] = comic.data.results
-          this.setState({ temp, flag: true, loaded: false ,fade: false})
+          this.setState({ temp, flag: true ,fade: false})
         })
       )
     )
@@ -125,8 +125,8 @@ class ComicCollection extends React.Component {
         </div>
         <div className={!this.state.fade ? "comic-results-container-hide" : "comic-results-container-show"}>
           {!this.state.flag ? firstSearch : deeperSearch}
-          <img className={!this.state.loaded ? "hide-spinner" : "show-spinner"} src="/public/img/Spinner.svg" alt="" />
         </div>
+          <img className={!this.state.loaded ? "hide-spinner" : "show-spinner"} src="/public/img/Spinner.svg" alt="" />
 
         <div className="publisher-heading">
           <div className="test">
