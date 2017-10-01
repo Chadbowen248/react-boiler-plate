@@ -8,6 +8,7 @@ const ComicCollectionResult = props =>
       className="comic-results__image"
       src={props.details.image.medium_url}
       alt=""
+      onLoad={props.haveImagesLoaded}
     />
     <p className="comic-container__title">
       {props.details.name}
