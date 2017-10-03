@@ -69,9 +69,29 @@ class ComicCollection extends React.Component {
 
   addComic = comic => {
     const collection = { ...this.state.collection }
+    const words = [
+      ["One", 1],
+      ["Two", 2],
+      ["Three", 3],
+      ["Four", 4],
+      ["Five", 5],
+      ["Six", 6],
+      ["Seven", 7],
+      ["Eight", 8],
+      ["Nine", 9],
+      ["Ten", 10]
+    ]
+
     comic.volume ? (comic.finalName = `${comic.volume.name} ${comic.name}`) : (comic.finalName = comic.name)
+    for (let i = 0; i < words.length; i++) {
+      if (comic.finalName.indexOf(words[i][0]) > -1) {
+        comic.finalName = comic.finalName.replace(words[i][0], words[i][1])
+        console.log(comic.finalName)
+      }
+    }
     collection[`comic-${comic.id}`] = comic
     this.setState({ collection })
+    alert(`${comic.finalName} added!!`)
     // localStorage.setItem(`comic-${comic.id}`, JSON.stringify(comic))
   }
 
