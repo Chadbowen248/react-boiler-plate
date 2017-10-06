@@ -37,6 +37,7 @@ const ComicCollectionResult = props =>
         Issues in volume: {props.details.count_of_issues}
       </span>
     </div>
+    <div className={props.displayModal ? 'modal-show' : 'modal-hide'}>{`you have added ${props.details.name}`}</div>
   </div>
 
 export default ComicCollectionResult

@@ -14,7 +14,9 @@ class ComicCollection extends React.Component {
     loaded: false,
     flag: false,
     fade: false,
-    images: 0
+    images: 0,
+    modal: false,
+    selected: ''
   }
 
   componentWillMount() {
@@ -86,12 +88,13 @@ class ComicCollection extends React.Component {
     for (let i = 0; i < words.length; i++) {
       if (comic.finalName.indexOf(words[i][0]) > -1) {
         comic.finalName = comic.finalName.replace(words[i][0], words[i][1])
-        console.log(comic.finalName)
       }
     }
     collection[`comic-${comic.id}`] = comic
-    this.setState({ collection })
-    alert(`${comic.finalName} added!!`)
+    this.setState({ collection, modal: true , selected: comic.name})
+
+
+    // alert(`${comic.finalName} added!!`)
     // localStorage.setItem(`comic-${comic.id}`, JSON.stringify(comic))
   }
 
@@ -108,6 +111,7 @@ class ComicCollection extends React.Component {
         isOnlyIssue={comic.count_of_issues}
         deeperSearch={this.deeperSearch}
         haveImagesLoaded={this.haveImagesLoaded}
+        modal={this.state.modal}
       />
     )
     const deeperSearch = Object.entries(this.state.temp).map(comic =>
@@ -178,6 +182,11 @@ class ComicCollection extends React.Component {
             .filter(comic => comic[1].finalName.toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0)
             .map(comic => <ComicCollectionComic details={comic[1]} key={comic[1].id} removeComic={this.removeComic} />)}
         </div>
+        <div className={this.state.modal ? "modal-show" : "modal-hide"}>
+          <p>{this.state.selected}</p>
+         <button className="comic-results-add-button" onClick={()=>{this.setState({modal: false})}}>close</button> 
+        </div> 
+        <div className={this.state.modal ? "fade-out" : ''} />
       </div>
     )
   }

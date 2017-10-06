@@ -145,6 +145,36 @@ button {
   width: 4em;
 }
 
+.modal-show {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 200px);
+  flex-direction: column;
+  width: 400px;
+  text-align: center;
+  background-color: white;
+  border: solid grey 2px;
+  border-radius: 5px;
+  padding: 5px;
+  z-index: 999;
+
+
+}
+
+.modal-hide {
+  display: none;
+}
+
+
+.fade-out {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  background-color: rgba(50, 55, 50, 0.8);
+}
+
 .hide-spinner {
 display: none;
 }
